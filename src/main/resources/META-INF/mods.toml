@@ -1,0 +1,37 @@
+license="MIT"
+modLoader="javafml"
+loaderVersion="[47,)"
+issueTrackerURL="https://github.com/Groupix05/DynamicTrees-Generator/issues"
+
+[[mods]]
+modId="dtaddon_lib"
+version="${file.jarVersion}"
+displayName="Addon Lib for Dynamic Trees"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dynamictrees"
+logoFile="logo.png"
+credits=""
+authors="DynamicTreesTeam"
+description='''
+A library for DynamicTrees. Adds custom logics and features for treepacks or addons.
+'''
+
+[[dependencies.dtaddon_lib]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47.4.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.dtaddon_lib]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.dtaddon_lib]]
+    modId="dynamictrees"
+    mandatory=true
+    versionRange="[1.4.5,)"
+    ordering="AFTER"
+    side="BOTH"
