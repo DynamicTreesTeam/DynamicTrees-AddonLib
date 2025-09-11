@@ -22,7 +22,6 @@ public class DTAddonLibGenFeatures {
     public static final GenFeature SPORES = new SporesGenFeature(DynamicTreesAddonLib.location("spores"));
     public static final GenFeature VINES_ON_TRUNK = new VinesOnTrunkGenFeature(DynamicTreesAddonLib.location("vines_on_trunk"));
     public static final GenFeature PLANT_SUCKERS = new PlantSuckerGenFeature(DynamicTreesAddonLib.location("plant_suckers"));
-    public static final GenFeature TRUNK_VINES = new VinesInTrunkGenFeature(DynamicTreesAddonLib.location("trunk_vines"));
     public static final GenFeature CHANGE_GRASS = new ChangeGrassGenFeature(DynamicTreesAddonLib.location("change_grass"));
     public static final GenFeature BANANA_FRUIT = new BananaFruitGenFeature(DynamicTreesAddonLib.location("banana_fruit"));
     public static final GenFeature DRAGON_FRUIT_FRUIT = new DragonFruitFruitGenFeature(DynamicTreesAddonLib.location("dragon_fruit_fruit"));
@@ -33,7 +32,7 @@ public class DTAddonLibGenFeatures {
     public static void register(final Registry<GenFeature> registry) {
         registry.registerAll(BIG_BOTTOM_FLARE, EXTRA_BOTTOM_FLARE, BIOME_PREDICATE_2, SYTHIAN_TOPPER,
                 ALTERNATIVE_BRANCH, LUSH_VINES, ALT_LEAVES_HEIGHT_LIMIT, ALT_LEAVES, ABOVE_LEAVES_BLOCK,
-                FALLEN_LEAVES, HANGER_VINES, SPORES, VINES_ON_TRUNK, PLANT_SUCKERS, TRUNK_VINES, CHANGE_GRASS,
+                FALLEN_LEAVES, HANGER_VINES, SPORES, VINES_ON_TRUNK, PLANT_SUCKERS, CHANGE_GRASS,
                 BANANA_FRUIT, DRAGON_FRUIT_FRUIT, PALM_FRUIT, RANDOM_STRIPPED_BRANCHES, FIREFLY);
     }
 
