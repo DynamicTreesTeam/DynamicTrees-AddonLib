@@ -15,6 +15,7 @@ import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
 import com.ferreusveritas.dynamictrees.growthlogic.GrowthLogicKit;
 import com.ferreusveritas.dynamictrees.systems.fruit.Fruit;
 import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeature;
+import com.ferreusveritas.dynamictrees.systems.pod.Pod;
 import com.ferreusveritas.dynamictrees.tree.family.Family;
 import com.ferreusveritas.dynamictrees.tree.species.Species;
 import net.minecraft.sounds.SoundEvent;
@@ -88,6 +89,12 @@ public class DTAddonLibRegistries {
         event.registerType(DynamicTreesAddonLib.location("offset_down"), OffsetFruit.TYPE);
         event.registerType(DynamicTreesAddonLib.location("falling_fruit"), FallingFruit.TYPE);
         event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebFruit.TYPE);
+    }
+
+    @SubscribeEvent
+    public static void registerPodType(final TypeRegistryEvent<Pod> event) {
+        event.registerType(DynamicTreesAddonLib.location("palm"), PalmPod.TYPE);
+        event.registerType(DynamicTreesAddonLib.location("falling_palm"), FallingPalmPod.TYPE);
     }
 
 }
