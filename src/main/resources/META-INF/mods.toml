@@ -1,7 +1,7 @@
 license="MIT"
 modLoader="javafml"
 loaderVersion="[47,)"
-issueTrackerURL="https://github.com/Groupix05/DynamicTrees-Generator/issues"
+issueTrackerURL="https://github.com/DynamicTreesTeam/DynamicTrees-AddonLib/issues"
 
 [[mods]]
 modId="dtaddon_lib"
