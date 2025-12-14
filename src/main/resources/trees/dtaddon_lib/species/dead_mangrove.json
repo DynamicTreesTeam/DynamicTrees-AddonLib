@@ -1,0 +1,19 @@
+{
+  "type": "mangrove",
+  "family": "mangrove",
+  "tapering": 0.25,
+  "root_tapering": 0.2,
+  "signal_energy": 20.0,
+  "root_signal_energy": 20.0,
+  "up_probability": 8,
+  "lowest_branch_height": 2,
+  "growth_rate": 0.6,
+  "roots_growth_logic_kit": "mangrove_roots",
+  "leaves_properties": "bare",
+  "can_bone_meal_tree": false,
+  "generate_seed": false,
+  "generate_sapling": false,
+  "acceptable_soils": ["dirt_like", "mud_like", "water_like"],
+  "allowed_water_height_for_world_gen": 3,
+  "plantable_on_fluid": true
+}

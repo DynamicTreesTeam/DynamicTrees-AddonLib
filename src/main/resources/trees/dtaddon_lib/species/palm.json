@@ -1,0 +1,16 @@
+{
+  "type": "palm",
+  "family": "dtaddon_lib:palm",
+  "tapering": 0.5,
+  "signal_energy": 7.0,
+  "growth_rate": 0.9,
+  "leaves_properties": "dtaddon_lib:palm",
+  "environment_factors" : {
+    "cold": 0.75,
+    "hot": 1.1,
+    "dry": 1.1
+  },
+  "transformable": false,
+  "perfect_biomes": { "tag": "#minecraft:is_beach" },
+  "acceptable_soils": ["dirt_like", "sand_like"]
+}

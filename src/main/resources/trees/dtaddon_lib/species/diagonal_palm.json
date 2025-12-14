@@ -1,0 +1,19 @@
+{
+  "type": "palm",
+  "family": "dtaddon_lib:diagonal_palm",
+  "tapering": 0.3,
+  "signal_energy": 24.0,
+  "growth_rate": 0.8,
+  "soil_longevity": 2,
+  "max_branch_radius": 8,
+  "growth_logic_kit": "dtaddon_lib:diagonal_palm",
+  "leaves_properties": "dtaddon_lib:diagonal_palm",
+  "environment_factors" : {
+    "cold": 0.75,
+    "hot": 1.1,
+    "dry": 1.1
+  },
+  "transformable": false,
+  "perfect_biomes": { "tag": "#minecraft:is_beach" },
+  "acceptable_soils": [ "dirt_like", "sand_like" ]
+}

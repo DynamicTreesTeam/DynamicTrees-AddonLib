@@ -49,7 +49,7 @@ public class LushVinesGenFeature extends GenFeature {
                 .with(MAX_LENGTH, 8)
                 .with(VERTICAL_SPREAD, 60f)
                 .with(RAY_DISTANCE, 5f)
-                .with(BLOCK, Blocks.VINE)
+                .with(BLOCK, Blocks.CAVE_VINES)
                 .with(TIP_BLOCK, null)
                 .with(BERRIES_CHANCE, 0)
                 .with(FRUITING_RADIUS, -1);

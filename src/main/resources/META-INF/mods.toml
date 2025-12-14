@@ -6,10 +6,10 @@ issueTrackerURL="https://github.com/DynamicTreesTeam/DynamicTrees-AddonLib/issue
 [[mods]]
 modId="dtaddon_lib"
 version="${file.jarVersion}"
-displayName="Addon Lib for Dynamic Trees"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/dynamictrees"
+displayName="Dynamic Trees Addon Lib"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-addon-lib"
 logoFile="logo.png"
-credits=""
+credits="Max Hyper, Groupix05, Joe Vettek, Nyfaria, Harley O'Connor, ferreusveritas, Nyfaria, mangoose"
 authors="DynamicTreesTeam"
 description='''
 A library for DynamicTrees. Adds custom logics and features for treepacks or addons.
@@ -32,6 +32,6 @@ A library for DynamicTrees. Adds custom logics and features for treepacks or add
 [[dependencies.dtaddon_lib]]
     modId="dynamictrees"
     mandatory=true
-    versionRange="[1.4.5,)"
+    versionRange="[1.4.8,)"
     ordering="AFTER"
     side="BOTH"
