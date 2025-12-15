@@ -1,6 +1,5 @@
 {
   "values": [
-    "dtaddon_lib:palm_seed",
-    "dtaddon_lib:diagonal_palm_seed"
+    "dtaddon_lib:palm_seed"
   ]
 }
