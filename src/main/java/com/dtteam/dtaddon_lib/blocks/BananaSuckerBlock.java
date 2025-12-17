@@ -4,7 +4,6 @@ import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
 import com.dtteam.dynamictrees.item.Seed;
 import com.dtteam.dynamictrees.tree.species.Species;
 import com.mojang.serialization.MapCodec;
-import maxhyper.dtphc2.DynamicTreesPHC2;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
