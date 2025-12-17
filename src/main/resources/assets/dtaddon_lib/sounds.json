@@ -1,9 +1,0 @@
-{
-  "falling_fruit.bonk": {
-    "category": "blocks",
-    "subtitle": "subtitle.dtaddon_lib.falling_fruit.bonk",
-    "sounds": [{
-      "name": "dtaddon_lib:blocks/fruit/bonk"
-    }]
-  }
-}

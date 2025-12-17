@@ -1,7 +1,0 @@
-{
-  "variants": {
-    "": {
-      "model": "dtaddon_lib:block/fir_branch"
-    }
-  }
-}
