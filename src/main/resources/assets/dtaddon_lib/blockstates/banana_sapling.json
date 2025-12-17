@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "dtaddon_lib:block/saplings/banana" },
+      { "model": "dtaddon_lib:block/saplings/banana", "y": 90 },
+      { "model": "dtaddon_lib:block/saplings/banana", "y": 180 },
+      { "model": "dtaddon_lib:block/saplings/banana", "y": 270 }
+    ]
+  }
+}

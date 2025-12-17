@@ -1,0 +1,13 @@
+{
+  "type": "dtaddon_lib:poplar",
+  "family": "birch",
+  "generate_seed": false,
+  "generate_sapling": true,
+  "tapering": 0.25,
+  "signal_energy": 11.0,
+  "up_probability": 5,
+  "lowest_branch_height": 4,
+  "growth_rate": 0.85,
+  "growth_logic_kit": "dtaddon_lib:poplar",
+  "leaves_properties": "dtaddon_lib:poplar"
+}

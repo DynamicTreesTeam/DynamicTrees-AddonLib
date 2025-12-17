@@ -1,0 +1,10 @@
+{
+  "type": "palm",
+  "common_leaves": "dtaddon_lib:palm",
+  "common_species": "dtaddon_lib:palm",
+  "primitive_log": "jungle_log",
+  "primitive_stripped_log": "stripped_jungle_log",
+  "max_branch_radius": 8,
+  "primary_thickness": 3,
+  "secondary_thickness": 3
+}
