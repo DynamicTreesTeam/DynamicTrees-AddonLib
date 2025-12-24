@@ -21,43 +21,42 @@ public class DTAddonLibPlusRegistries {
 
     @SubscribeEvent
     public static void registerSpeciesTypes (final TypeRegistryEvent<Species> event) {
-        event.registerType(DynamicTreesAddonLib.location("woody_mushroom"), WoodyHugeMushroomSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("glowshroom"), GlowshroomSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("prickly_pear_cactus"), PricklyPearCactusSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("bioshroom"), BioshroomSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("small_bioshroom"), SmallBioshroomSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("drop_logs"), DropLogsMushroomSpecies.TYPE);
+        if (event.isEntryOfType(Species.class)) {
+            event.registerType(DynamicTreesAddonLib.location("drop_logs"), DropLogsMushroomSpecies.TYPE);
+        }
     }
 
     @SubscribeEvent
     public static void registerFamilyTypes (final TypeRegistryEvent<Family> event) {
-        event.registerType(DynamicTreesAddonLib.location("warty_mushroom"), WartyMushroomFamily.TYPE);
+        if (event.isEntryOfType(Family.class)){
+        }
     }
 
     @SubscribeEvent
     public static void registerCapPropertiesTypes (final TypeRegistryEvent<CapProperties> event){
-        event.registerType(DynamicTreesAddonLib.location("warty_cap"), WartyCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("weeping_milkcap_cap"), WeepingMilkcapCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("bioshroom_cap"), BioshroomCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("pink_bioshroom_cap"), PinkBioshroomCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("yellow_bioshroom_cap"), YellowBioshroomCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("green_bioshroom_cap"), GreenBioshroomCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("embur_gel_cap"), EmburGelCapProperties.TYPE);
+        if (event.isEntryOfType(CapProperties.class)){
+        }
     }
 
     @SubscribeEvent
     public static void registerCactusThicknessLogic(final RegistryEvent<CactusThicknessLogic> event) {
-        DTAddonLibThicknessLogicKits.register(event.getRegistry());
+        if (event.isEntryOfType(CactusThicknessLogic.class)) {
+            DTAddonLibThicknessLogicKits.register(event.getRegistry());
+        }
     }
 
     @SubscribeEvent
     public static void onMushroomShapeKitRegistry(final RegistryEvent<MushroomShapeKit> event) {
-        DTAddonLibMushroomShapeKits.register(event.getRegistry());
+        if (event.isEntryOfType(MushroomShapeKit.class)) {
+            DTAddonLibMushroomShapeKits.register(event.getRegistry());
+        }
     }
 
     @SubscribeEvent
     public static void onGenFeatureRegistry (final RegistryEvent<GenFeature> event) {
-        DTAddonLibGenFeaturesPlus.register(event.getRegistry());
+        if (event.isEntryOfType(GenFeature.class)) {
+            DTAddonLibGenFeaturesPlus.register(event.getRegistry());
+        }
     }
 
 }

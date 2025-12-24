@@ -41,59 +41,72 @@ public class DTAddonLibRegistries {
 
     @SubscribeEvent
     public static void onGenFeatureRegistry (final RegistryEvent<GenFeature> event) {
-        DTAddonLibGenFeatures.register(event.getRegistry());
+        if (event.isEntryOfType(GenFeature.class)) {
+            DTAddonLibGenFeatures.register(event.getRegistry());
+        }
     }
 
     @SubscribeEvent
     public static void onCellKitRegistry (final RegistryEvent<CellKit> event) {
-        DTAddonLibCellKits.register(event.getRegistry());
+        if (event.isEntryOfType(CellKit.class)) {
+            DTAddonLibCellKits.register(event.getRegistry());
+        }
     }
 
     @SubscribeEvent
     public static void onGrowthLogicKitRegistry (final RegistryEvent<GrowthLogicKit> event) {
-        DTAddonLibGrowthLogicKits.register(event.getRegistry());
+        if (event.isEntryOfType(GrowthLogicKit.class)) {
+            DTAddonLibGrowthLogicKits.register(event.getRegistry());
+        }
     }
 
     @SubscribeEvent
     public static void registerLeavesPropertiesTypes(TypeRegistryEvent<LeavesProperties> event) {
-        event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebLeavesProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("particle"), ParticleLeavesProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("scruffy_particle"), ScruffyParticleLeavesProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("scruffy_snowy"), SnowyScruffyLeavesProperties.TYPE);
+        if (event.isEntryOfType(LeavesProperties.class)) {
+            event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebLeavesProperties.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("particle"), ParticleLeavesProperties.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("scruffy_particle"), ScruffyParticleLeavesProperties.TYPE);
+        }
     }
 
     @SubscribeEvent
     public static void registerSpeciesTypes (final TypeRegistryEvent<Species> event) {
-        event.registerType(DynamicTreesAddonLib.location("poplar"), PoplarSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("twiglet"), TwigletSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("generates_underwater"), GenUnderwaterSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("generates_on_extra_soil"), GenOnExtraSoilSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("lament"), LamentSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("cypress"), CypressSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("generates_on_stone"), GenOnStoneSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("bush"), Bush.TYPE);
+        if (event.isEntryOfType(Species.class)) {
+            event.registerType(DynamicTreesAddonLib.location("poplar"), PoplarSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("twiglet"), TwigletSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("generates_underwater"), GenUnderwaterSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("generates_on_extra_soil"), GenOnExtraSoilSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("lament"), LamentSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("cypress"), CypressSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("generates_on_stone"), GenOnStoneSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("bush"), Bush.TYPE);
+        }
     }
 
     @SubscribeEvent
     public static void registerFamilyTypes (final TypeRegistryEvent<Family> event) {
-        event.registerType(DynamicTreesAddonLib.location("imbued_log"), ImbuedLogFamily.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("diagonal_palm"), DiagonalPalmFamily.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("sythian_fungus"), SythianFungusFamily.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("stripped_transition_log"), TransitionLogFamily.TYPE_STRIPPED);
-        event.registerType(DynamicTreesAddonLib.location("base_transition_log"), TransitionLogFamily.TYPE_BASE);
+        if (event.isEntryOfType(Family.class)) {
+            event.registerType(DynamicTreesAddonLib.location("imbued_log"), ImbuedLogFamily.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("diagonal_palm"), DiagonalPalmFamily.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("stripped_transition_log"), TransitionLogFamily.TYPE_STRIPPED);
+            event.registerType(DynamicTreesAddonLib.location("base_transition_log"), TransitionLogFamily.TYPE_BASE);
+        }
     }
 
     @SubscribeEvent
     public static void registerFruitType(final TypeRegistryEvent<Fruit> event) {
-        event.registerType(DynamicTreesAddonLib.location("offset_down"), OffsetFruit.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("falling_fruit"), FallingFruit.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebFruit.TYPE);
+        if (event.isEntryOfType(Fruit.class)) {
+            event.registerType(DynamicTreesAddonLib.location("offset_down"), OffsetFruit.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("falling_fruit"), FallingFruit.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebFruit.TYPE);
+        }
     }
 
     @SubscribeEvent
     public static void registerPodType(final TypeRegistryEvent<Pod> event) {
-        event.registerType(DynamicTreesAddonLib.location("palm"), PalmPod.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("falling_palm"), FallingPalmPod.TYPE);
+        if (event.isEntryOfType(Pod.class)){
+            event.registerType(DynamicTreesAddonLib.location("palm"), PalmPod.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("falling_palm"), FallingPalmPod.TYPE);
+        }
     }
-
 }

@@ -2,7 +2,6 @@ package com.dtteam.dtaddon_lib;
 
 import com.dtteam.dtaddon_lib.init.DTAddonLibPlusRegistries;
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;
-import com.dtteam.dtaddon_lib.resources.RegisterJSONAppliersPlus;
 import com.dtteam.dynamictrees.block.fruit.Fruit;
 import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
 import com.dtteam.dynamictrees.block.pod.Pod;
@@ -35,7 +34,6 @@ public final class DynamicTreesAddonLib {
 
         if (ModList.get().isLoaded("dynamictreesplus")) {
             eventBus.register(DTAddonLibPlusRegistries.class);
-            eventBus.register(RegisterJSONAppliersPlus.class);
         }
 
         NeoForgeRegistryHandler.setup(MOD_ID, eventBus);

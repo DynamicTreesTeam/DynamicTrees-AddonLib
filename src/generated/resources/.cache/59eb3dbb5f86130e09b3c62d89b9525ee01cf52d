@@ -1,0 +1,16 @@
+// 1.21.1	2025-12-24T15:15:41.721101374	Loot Tables
+c3fa8ed14e3305a52fa751527f5e3a85acdb6a94 data/dtaddon_lib/loot_table/blocks/cypress_leaves.json
+3c85ae591f1a5926cb9918ecf6804fffbf0b758e data/dtaddon_lib/loot_table/blocks/fir_leaves.json
+dec07b2cc3ecb06895685400ca838acf5487de1d data/dtaddon_lib/loot_table/blocks/palm_leaves.json
+91919d2aab820dd4200eef085c03da9d9d1a66ac data/dtaddon_lib/loot_table/blocks/poplar_leaves.json
+9cfd9b118a64c37a0d7c75c942c10665386b9a1e data/dtaddon_lib/loot_table/trees/branches/big_oak.json
+ea2c9b2fd279352b8713ae09c913485099bf2dfd data/dtaddon_lib/loot_table/trees/branches/fir.json
+6b946cc342565eb3cad2750ac31855972916873f data/dtaddon_lib/loot_table/trees/branches/palm.json
+efbc0d6f4128d60b97ea4af79dd4f80e40ce9190 data/dtaddon_lib/loot_table/trees/branches/stripped_big_oak.json
+a260793f2dffec87c6debef25e4cc744be670925 data/dtaddon_lib/loot_table/trees/branches/stripped_fir.json
+bbeaf678d790e9e552c48ee73633d3e802376d0c data/dtaddon_lib/loot_table/trees/branches/stripped_palm.json
+fd4792d52b0b862e5430892799c1676382112d77 data/dtaddon_lib/loot_table/trees/leaves/cypress.json
+9e94277498212be800e544129038d7ed9777454f data/dtaddon_lib/loot_table/trees/leaves/fir.json
+f2fe24712686715996e0816c95c572832bdae9ae data/dtaddon_lib/loot_table/trees/leaves/palm.json
+b2a761ade8ca2a8ec0b9565da227d69751007e43 data/dtaddon_lib/loot_table/trees/leaves/poplar.json
+c59077ae0a7ff152728a217efeda1875c6c4f7b2 data/dtaddon_lib/loot_table/trees/voluntary/palm.json
