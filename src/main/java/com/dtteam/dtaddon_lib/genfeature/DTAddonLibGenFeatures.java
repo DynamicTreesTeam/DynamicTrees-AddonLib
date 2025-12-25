@@ -5,6 +5,7 @@ import com.dtteam.dynamictrees.api.registry.Registry;
 import com.dtteam.dynamictrees.systems.genfeature.BiomePredicateGenFeature;
 import com.dtteam.dynamictrees.systems.genfeature.GenFeature;
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
+import com.dtteam.dynamictrees.systems.genfeature.ShroomlightGenFeature;
 
 public class DTAddonLibGenFeatures {
 
@@ -28,7 +29,7 @@ public class DTAddonLibGenFeatures {
     public static final GenFeature RANDOM_STRIPPED_BRANCHES = new RandomStrippedBranches(DynamicTreesAddonLib.location("random_stripped_branches"));
     public static final GenFeature TRUNK_BLOCK = new TrunkBlocksGenFeature(DynamicTreesAddonLib.location("trunk_block"));
     public static final GenFeature TRUNK_BRANCHES = new TrunkBranchesGenFeature(DynamicTreesAddonLib.location("trunk_branches"));
-    public static final GenFeature SHROOMLIGHT = new ShroomlightGenAlternateFeature(DynamicTreesAddonLib.location("shroomlight"));
+    public static final GenFeature SHROOMLIGHT = new ShroomlightGenFeature(DynamicTreesAddonLib.location("shroomlight"));
 
     public static void register(final Registry<GenFeature> registry) {
         registry.registerAll(BIG_BOTTOM_FLARE, EXTRA_BOTTOM_FLARE, BIOME_PREDICATE_2, TOP_LEAVES,
