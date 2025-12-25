@@ -20,12 +20,12 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
-public class JellyshroomBranchesGenFeature extends GenFeature {
+public class TrunkBranchesGenFeature extends GenFeature {
 
     public static final ConfigurationProperty<Block> BLOCK = ConfigurationProperty.block("block");
     public static final ConfigurationProperty<Integer> BLOCKS_PER_BRANCH = ConfigurationProperty.integer("blocks_per_branch");
 
-    public JellyshroomBranchesGenFeature(ResourceLocation registryName) {
+    public TrunkBranchesGenFeature(ResourceLocation registryName) {
         super(registryName);
     }
     @Override

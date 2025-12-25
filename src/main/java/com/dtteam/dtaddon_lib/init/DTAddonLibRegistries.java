@@ -58,7 +58,6 @@ public class DTAddonLibRegistries {
         event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebLeavesProperties.TYPE);
         event.registerType(DynamicTreesAddonLib.location("particle"), ParticleLeavesProperties.TYPE);
         event.registerType(DynamicTreesAddonLib.location("scruffy_particle"), ScruffyParticleLeavesProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("scruffy_snowy"), SnowyScruffyLeavesProperties.TYPE);
     }
 
     @SubscribeEvent
@@ -67,19 +66,16 @@ public class DTAddonLibRegistries {
         event.registerType(DynamicTreesAddonLib.location("twiglet"), TwigletSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("generates_underwater"), GenUnderwaterSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("generates_on_extra_soil"), GenOnExtraSoilSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("mangrove"), MangroveSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("lament"), LamentSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("cypress"), CypressSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("generates_on_stone"), GenOnStoneSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("bush"), Bush.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("giga_spruce"), GigaSpruceSpecies.TYPE);
     }
 
     @SubscribeEvent
     public static void registerFamilyTypes (final TypeRegistryEvent<Family> event) {
         event.registerType(DynamicTreesAddonLib.location("imbued_log"), ImbuedLogFamily.TYPE);
         event.registerType(DynamicTreesAddonLib.location("diagonal_palm"), DiagonalPalmFamily.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("sythian_fungus"), SythianFungusFamily.TYPE);
         event.registerType(DynamicTreesAddonLib.location("stripped_transition_log"), TransitionLogFamily.TYPE_STRIPPED);
         event.registerType(DynamicTreesAddonLib.location("base_transition_log"), TransitionLogFamily.TYPE_BASE);
     }

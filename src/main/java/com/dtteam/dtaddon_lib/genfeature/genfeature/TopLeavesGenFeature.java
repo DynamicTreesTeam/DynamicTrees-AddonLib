@@ -13,11 +13,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class SythianTopperGenFeature extends GenFeature {
+public class TopLeavesGenFeature extends GenFeature {
 
     public static final ConfigurationProperty<LeavesProperties> LEAVES_PROPERTIES = ConfigurationProperty.property("leaves_properties", LeavesProperties.class);
 
-    public SythianTopperGenFeature(ResourceLocation registryName) {
+    public TopLeavesGenFeature(ResourceLocation registryName) {
         super(registryName);
     }
 

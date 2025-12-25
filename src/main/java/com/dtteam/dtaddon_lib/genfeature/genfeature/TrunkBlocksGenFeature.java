@@ -21,14 +21,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class FireflyGenFeature extends GenFeature {
+public class TrunkBlocksGenFeature extends GenFeature {
 
     public static final ConfigurationProperty<Integer> MIN_RADIUS = ConfigurationProperty.integer("min_radius");
     public static final ConfigurationProperty<Integer> MAX_HEIGHT = ConfigurationProperty.integer("max_height");
     public static final ConfigurationProperty<Integer> WORLDGEN_MAX_COUNT = ConfigurationProperty.integer("worldgen_max_count");
     public static final ConfigurationProperty<Block> BLOCK = ConfigurationProperty.block("block");
 
-    public FireflyGenFeature(ResourceLocation registryName) {
+    public TrunkBlocksGenFeature(ResourceLocation registryName) {
         super(registryName);
     }
 

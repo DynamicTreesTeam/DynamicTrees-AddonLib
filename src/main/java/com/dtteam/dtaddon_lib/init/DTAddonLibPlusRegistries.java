@@ -21,28 +21,16 @@ public class DTAddonLibPlusRegistries {
 
     @SubscribeEvent
     public static void registerSpeciesTypes (final TypeRegistryEvent<Species> event) {
-        event.registerType(DynamicTreesAddonLib.location("woody_mushroom"), WoodyHugeMushroomSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("glowshroom"), GlowshroomSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("prickly_pear_cactus"), PricklyPearCactusSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("bioshroom"), BioshroomSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("small_bioshroom"), SmallBioshroomSpecies.TYPE);
+        event.registerType(DynamicTreesAddonLib.location("silk_touch"), SilkTouchMushroomSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("drop_logs"), DropLogsMushroomSpecies.TYPE);
     }
 
     @SubscribeEvent
     public static void registerFamilyTypes (final TypeRegistryEvent<Family> event) {
-        event.registerType(DynamicTreesAddonLib.location("warty_mushroom"), WartyMushroomFamily.TYPE);
     }
 
     @SubscribeEvent
     public static void registerCapPropertiesTypes (final TypeRegistryEvent<CapProperties> event){
-        event.registerType(DynamicTreesAddonLib.location("warty_cap"), WartyCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("weeping_milkcap_cap"), WeepingMilkcapCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("bioshroom_cap"), BioshroomCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("pink_bioshroom_cap"), PinkBioshroomCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("yellow_bioshroom_cap"), YellowBioshroomCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("green_bioshroom_cap"), GreenBioshroomCapProperties.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("embur_gel_cap"), EmburGelCapProperties.TYPE);
     }
 
     @SubscribeEvent

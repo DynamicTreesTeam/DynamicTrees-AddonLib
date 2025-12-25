@@ -2,7 +2,6 @@ package com.dtteam.dtaddon_lib;
 
 import com.dtteam.dtaddon_lib.init.DTAddonLibPlusRegistries;
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;
-import com.dtteam.dtaddon_lib.resources.RegisterJSONAppliersPlus;
 import com.ferreusveritas.dynamictrees.api.GatherDataHelper;
 import com.ferreusveritas.dynamictrees.api.registry.RegistryHandler;
 import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
@@ -37,7 +36,6 @@ public final class DynamicTreesAddonLib {
 
         if (ModList.get().isLoaded("dynamictreesplus")){
             eventBus.register(DTAddonLibPlusRegistries.class);
-            eventBus.register(RegisterJSONAppliersPlus.class);
         }
 
         MinecraftForge.EVENT_BUS.register(this);

@@ -8,11 +8,11 @@ import com.ferreusveritas.dynamictreesplus.block.mushroom.CapProperties;
 import com.ferreusveritas.dynamictreesplus.tree.HugeMushroomSpecies;
 import net.minecraft.resources.ResourceLocation;
 
-public class WoodyHugeMushroomSpecies extends HugeMushroomSpecies {
+public class SilkTouchMushroomSpecies extends HugeMushroomSpecies {
 
-    public static final TypedRegistry.EntryType<Species> TYPE = createDefaultMushroomType(WoodyHugeMushroomSpecies::new);
+    public static final TypedRegistry.EntryType<Species> TYPE = createDefaultMushroomType(SilkTouchMushroomSpecies::new);
 
-    public WoodyHugeMushroomSpecies(ResourceLocation name, Family family, CapProperties capProperties) {
+    public SilkTouchMushroomSpecies(ResourceLocation name, Family family, CapProperties capProperties) {
         super(name, family, capProperties);
     }
 
