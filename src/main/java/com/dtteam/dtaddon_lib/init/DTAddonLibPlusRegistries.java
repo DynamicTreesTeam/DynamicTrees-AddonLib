@@ -22,6 +22,7 @@ public class DTAddonLibPlusRegistries {
     @SubscribeEvent
     public static void registerSpeciesTypes (final TypeRegistryEvent<Species> event) {
         if (event.isEntryOfType(Species.class)) {
+            event.registerType(DynamicTreesAddonLib.location("silk_touch"), SilkTouchMushroomSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("drop_logs"), DropLogsMushroomSpecies.TYPE);
         }
     }
