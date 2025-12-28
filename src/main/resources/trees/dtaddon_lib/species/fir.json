@@ -7,7 +7,7 @@
   "up_probability": 4,
   "lowest_branch_height": 3,
   "growth_rate": 0.9,
-  "growth_logic_kit": "dtaddon_lib:small_conifer",
+  "growth_logic_kit": "dtaddon_lib:small_redwood",
   "leaves_properties": "dtaddon_lib:fir",
   "features" : [
     "conifer_topper"

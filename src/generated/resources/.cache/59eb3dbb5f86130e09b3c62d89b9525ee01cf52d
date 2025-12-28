@@ -1,8 +1,9 @@
-// 1.20.1	2025-12-15T19:34:19.007046417	Loot Tables
+// 1.20.1	2025-12-28T22:20:02.336711644	Loot Tables
 a1b833cdec5521339a9fa63ed47580274b54a217 data/dtaddon_lib/loot_tables/blocks/cypress_leaves.json
 9b9f88b38c8fbe79831fa1d37413531a6becaf6a data/dtaddon_lib/loot_tables/blocks/fir_leaves.json
 bdf84347ddad9840002af2915f53e7b22922e95b data/dtaddon_lib/loot_tables/blocks/palm_leaves.json
 28b021169c56a47fb3caaa4d88d6ad950e304d7a data/dtaddon_lib/loot_tables/blocks/poplar_leaves.json
+3048926db8233f41ce69c657d5e4f983219b4f06 data/dtaddon_lib/loot_tables/trees/branches/alt_big_oak.json
 9cfd9b118a64c37a0d7c75c942c10665386b9a1e data/dtaddon_lib/loot_tables/trees/branches/big_oak.json
 ea2c9b2fd279352b8713ae09c913485099bf2dfd data/dtaddon_lib/loot_tables/trees/branches/fir.json
 6b946cc342565eb3cad2750ac31855972916873f data/dtaddon_lib/loot_tables/trees/branches/palm.json

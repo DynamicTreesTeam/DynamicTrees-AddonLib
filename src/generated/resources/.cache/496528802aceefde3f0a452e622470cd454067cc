@@ -1,4 +1,5 @@
-// 1.20.1	2025-12-15T19:34:19.009056668	Block States: dtaddon_lib
+// 1.20.1	2025-12-28T22:20:02.338935211	Block States: dtaddon_lib
+03f12e12b856b9414551f328cf29c5d8428af87b assets/dtaddon_lib/blockstates/alt_big_oak_branch.json
 c0c28cc0026751ee31bea155d8c13a3aaf61e53b assets/dtaddon_lib/blockstates/big_oak_branch.json
 9b73d2419e07259eb9681640ac018a6aeb7e7e93 assets/dtaddon_lib/blockstates/cypress_leaves.json
 86c6f6fedd6df22d0f8ac241d4b0bcb11058b1c1 assets/dtaddon_lib/blockstates/cypress_sapling.json
@@ -13,6 +14,7 @@ c4b8850b168f87fec5f6a47de9e3591c75c8cfca assets/dtaddon_lib/blockstates/fir_sapl
 6ad6a47555f5e3777646ef7d971f48ffff200141 assets/dtaddon_lib/blockstates/stripped_big_oak_branch.json
 5f25948c3f50fea931293b1f89e4f3ec6e7b31cb assets/dtaddon_lib/blockstates/stripped_fir_branch.json
 8f360990e6df94837e5ca750e648cd6938370c32 assets/dtaddon_lib/blockstates/stripped_palm_branch.json
+1b964e57e28427389e93e334e2df1b827a126aa0 assets/dtaddon_lib/models/block/alt_big_oak_branch.json
 5e4f53ad61cabb371357397906ee7dc5d509966a assets/dtaddon_lib/models/block/big_oak_branch.json
 5e4f53ad61cabb371357397906ee7dc5d509966a assets/dtaddon_lib/models/block/fir_branch.json
 b501cdf4d823a839cb321bc083c32cf985943cd3 assets/dtaddon_lib/models/block/palm_branch.json

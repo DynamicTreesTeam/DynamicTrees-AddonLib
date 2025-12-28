@@ -14,6 +14,12 @@
   "leaves_properties": "dtaddon_lib:cypress",
   "acceptable_soils": [ "dirt_like" ],
   "features": [
-    "dtbop:extra_bottom_flare"
+    "dtaddon_lib:extra_bottom_flare",
+    {
+      "name": "dtaddon_lib:alt_branch",
+      "properties": {
+        "alternative_branch_block": "dtaddon_lib:alt_big_oak_branch"
+      }
+    }
   ]
 }

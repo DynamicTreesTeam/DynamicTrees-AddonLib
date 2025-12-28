@@ -138,7 +138,7 @@ public class RedwoodLogic extends GrowthLogicKit {
         final Level level = context.level();
         final BlockPos pos = context.pos();
         final Species species = context.species();
-        // Vary the height energy by a psuedorandom hash function
+        // Vary the height energy by a pseudorandom hash function
         return species.getSignalEnergy() * species.biomeSuitability(level, pos) +
                 getHashedVariation(level, pos, 2, 16);
     }
@@ -159,7 +159,7 @@ public class RedwoodLogic extends GrowthLogicKit {
     }
 
     private float getHashedVariation(Level level, BlockPos pos, int readyMade, Integer mod) {
-        return (getHashedVariation(level, pos, readyMade) % mod);//Vary the height energy by a psuedorandom hash function
+        return (getHashedVariation(level, pos, readyMade) % mod);//Vary the height energy by a pseudorandom hash function
     }
 
 }

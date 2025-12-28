@@ -74,7 +74,7 @@ public class DTAddonLibRegistries {
 
     @SubscribeEvent
     public static void registerFamilyTypes (final TypeRegistryEvent<Family> event) {
-        event.registerType(DynamicTreesAddonLib.location("imbued_log"), ImbuedLogFamily.TYPE);
+        event.registerType(DynamicTreesAddonLib.location("alt_log"), AltLogFamily.TYPE);
         event.registerType(DynamicTreesAddonLib.location("diagonal_palm"), DiagonalPalmFamily.TYPE);
         event.registerType(DynamicTreesAddonLib.location("stripped_transition_log"), TransitionLogFamily.TYPE_STRIPPED);
         event.registerType(DynamicTreesAddonLib.location("base_transition_log"), TransitionLogFamily.TYPE_BASE);

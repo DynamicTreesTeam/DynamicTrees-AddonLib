@@ -1,7 +1,6 @@
 package com.dtteam.dtaddon_lib.resources;
 
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
-import com.dtteam.dtaddon_lib.blocks.*;
 import com.dtteam.dtaddon_lib.tree.family.*;
 import com.dtteam.dtaddon_lib.tree.species.*;
 import com.ferreusveritas.dynamictrees.api.applier.ApplierRegistryEvent;
@@ -36,8 +35,8 @@ public final class RegisterJSONAppliers {
     }
 
     public static void registerFamilyAppliers(PropertyAppliers<Family, JsonElement> appliers) {
-        appliers.register("primitive_imbued_log", ImbuedLogFamily.class, Block.class,
-                ImbuedLogFamily::setPrimitiveImbuedLog);
+        appliers.register("primitive_alt_log", AltLogFamily.class, Block.class,
+                AltLogFamily::setPrimitiveAltLog);
     }
 
     @SubscribeEvent public static void registerAppliersSpecies(final ApplierRegistryEvent.GatherData<Species, JsonElement> event) { registerSpeciesAppliers(event.getAppliers()); }
