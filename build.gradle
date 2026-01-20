@@ -90,11 +90,12 @@ dependencies {
     implementation "com.dtteam.dynamictreesplus:DynamicTreesPlus:${dtplus_version}"
 
     //DynmaicTrees Tools/Utilities
-    runtimeOnly "curse.maven:jade-324717:6291517"
+    implementation "curse.maven:jade-324717:6291517"
     runtimeOnly "curse.maven:jei-238222:5846880"
     runtimeOnly "curse.maven:cc-tweaked-282001:5714512"
     runtimeOnly "curse.maven:suggestion-provider-fix-469647:5598604"
     runtimeOnly "curse.maven:tagtooltips-899941:6418051"
+    runtimeOnly "curse.maven:patchouli-306770:6842247"
 
     //Other
     //implementation "curse.maven:template-projectid:fileid"

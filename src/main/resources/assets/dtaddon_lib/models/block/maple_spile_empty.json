@@ -1,0 +1,58 @@
+{
+	"credit": "Made with Blockbench",
+	"render_type": "minecraft:translucent",
+	"textures": {
+		"particle": "dtaddon_lib:block/spile",
+		"spile": "dtaddon_lib:block/spile",
+		"overlay": "dtaddon_lib:block/spile_overlay"
+	},
+	"elements": [
+		{
+			"from": [7, 10, -1],
+			"to": [9, 12, 4],
+			"faces": {
+				"north": {"uv": [3, 0, 5, 2], "texture": "#spile"},
+				"east": {"uv": [1, 2, 3, 7], "rotation": 90, "texture": "#spile"},
+				"south": {"uv": [6.5, 7, 8.5, 9], "texture": "#spile"},
+				"west": {"uv": [7, 7, 5, 2], "rotation": 90, "texture": "#spile"},
+				"up": {"uv": [7, 2, 9, 7], "texture": "#spile"},
+				"down": {"uv": [5, 7, 3, 2], "texture": "#spile"}
+			}
+		},
+		{
+			"from": [7, 10, -1],
+			"to": [9, 12, 4],
+			"faces": {
+				"north": {"uv": [3, 0, 5, 2], "texture": "#overlay", "tintindex": 0 },
+				"east": {"uv": [1, 2, 3, 7], "rotation": 90, "texture": "#overlay", "tintindex": 0 },
+				"south": {"uv": [6.5, 7, 8.5, 9], "texture": "#overlay", "tintindex": 0 },
+				"west": {"uv": [7, 7, 5, 2], "rotation": 90, "texture": "#overlay", "tintindex": 0 },
+				"up": {"uv": [7, 2, 9, 7], "texture": "#overlay", "tintindex": 0 },
+				"down": {"uv": [5, 7, 3, 2], "texture": "#overlay", "tintindex": 0 }
+			}
+		},
+		{
+			"from": [7, 10, 4],
+			"to": [9, 11, 6],
+			"faces": {
+				"east": {"uv": [2, 7, 3, 9], "rotation": 90, "texture": "#spile"},
+				"south": {"uv": [9, 9, 11, 10], "texture": "#spile"},
+				"west": {"uv": [5, 7, 6, 9], "rotation": 270, "texture": "#spile"},
+				"up": {"uv": [9, 7, 11, 9], "texture": "#spile"},
+				"down": {"uv": [3, 7, 5, 9], "rotation": 180, "texture": "#spile"}
+			}
+		},
+		{
+			"from": [7, 10, 4],
+			"to": [9, 11, 6],
+			"faces": {
+				"north": {"uv": [0, 0, 0, 0], "texture": "#overlay", "tintindex": 0 },
+				"east": {"uv": [2, 7, 3, 9], "rotation": 90, "texture": "#overlay", "tintindex": 0 },
+				"south": {"uv": [9, 9, 11, 10], "texture": "#overlay", "tintindex": 0 },
+				"west": {"uv": [5, 7, 6, 9], "rotation": 270, "texture": "#overlay", "tintindex": 0 },
+				"up": {"uv": [9, 7, 11, 9], "texture": "#overlay", "tintindex": 0 },
+				"down": {"uv": [3, 7, 5, 9], "rotation": 180, "texture": "#overlay", "tintindex": 0 }
+			}
+		}
+	]
+}

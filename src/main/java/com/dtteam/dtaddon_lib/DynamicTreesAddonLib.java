@@ -1,5 +1,6 @@
 package com.dtteam.dtaddon_lib;
 
+import com.dtteam.dtaddon_lib.init.DTAddonLibBlocks;
 import com.dtteam.dtaddon_lib.init.DTAddonLibPlusRegistries;
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;
 import com.dtteam.dynamictrees.block.fruit.Fruit;
@@ -29,6 +30,8 @@ public final class DynamicTreesAddonLib {
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::gatherData);
+
+        DTAddonLibBlocks.register(eventBus);
 
         DTAddonLibRegistries.SOUNDS.register(eventBus);
 

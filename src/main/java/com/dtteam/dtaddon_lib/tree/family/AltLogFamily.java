@@ -21,32 +21,32 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 // From DTBWG
-public class ImbuedLogFamily extends Family {
+public class AltLogFamily extends Family {
 
-    public static final TypedRegistry.EntryType<Family> TYPE = TypedRegistry.newType(ImbuedLogFamily::new);
+    public static final TypedRegistry.EntryType<Family> TYPE = TypedRegistry.newType(AltLogFamily::new);
 
-    protected Supplier<BranchBlock> imbuedBranch;
-    protected Block primitiveImbuedLog;
-    protected final MutableLazyValue<ImbuedBranchStateGenerator> imbuedBranchStateGenerator;
+    protected Supplier<BranchBlock> altBranch;
+    protected Block primitiveAltLog;
+    protected final MutableLazyValue<altBranchStateGenerator> altBranchStateGenerator;
 
-    public ImbuedLogFamily(ResourceLocation name) {
+    public AltLogFamily(ResourceLocation name) {
         super(name);
-        imbuedBranchStateGenerator = MutableLazyValue.supplied(ImbuedBranchStateGenerator::new);
+        altBranchStateGenerator = MutableLazyValue.supplied(altBranchStateGenerator::new);
     }
 
     @Override
     public void setupBlocks() {
         super.setupBlocks();
 
-        this.imbuedBranch = setupBranch(createImbuedBranch(getBranchName("imbued_")), false);
+        this.altBranch = setupBranch(createAltBranch(getBranchName("alt_")), false);
     }
 
-    protected BranchBlock createImbuedBranchBlock(ResourceLocation name) {
+    protected BranchBlock createAltBranchBlock(ResourceLocation name) {
         BasicBranchBlock branch = new ThickBranchBlock(name, this.getProperties()){
             @Override
             public Optional<Block> getPrimitiveLog() {
-                if (getFamily() instanceof ImbuedLogFamily imbuedLogFamily)
-                    return imbuedLogFamily.getPrimitiveImbuedLog();
+                if (getFamily() instanceof AltLogFamily altLogFamily)
+                    return altLogFamily.getPrimitiveAltLog();
                 return super.getPrimitiveLog();
             }
         };
@@ -57,40 +57,40 @@ public class ImbuedLogFamily extends Family {
         return branch;
     }
 
-    protected Supplier<BranchBlock> createImbuedBranch(ResourceLocation name) {
-        return RegistryHandler.addBlock(ResourceLocationUtils.suffix(name, this.getBranchNameSuffix()), () -> this.createImbuedBranchBlock(name));
+    protected Supplier<BranchBlock> createAltBranch(ResourceLocation name) {
+        return RegistryHandler.addBlock(ResourceLocationUtils.suffix(name, this.getBranchNameSuffix()), () -> this.createAltBranchBlock(name));
     }
 
-    public Family setPrimitiveImbuedLog(Block primitiveLog) {
-        this.primitiveImbuedLog = primitiveLog;
-        imbuedBranch.get().setPrimitiveLogDrops(new ItemStack(primitiveLog));
+    public Family setPrimitiveAltLog(Block primitiveLog) {
+        this.primitiveAltLog = primitiveLog;
+        altBranch.get().setPrimitiveLogDrops(new ItemStack(primitiveLog));
         return this;
     }
 
-    public Optional<BranchBlock> getImbuedBranch() {
-        return Optionals.ofBlock(imbuedBranch.get());
+    public Optional<BranchBlock> getAltBranch() {
+        return Optionals.ofBlock(altBranch.get());
     }
 
-    public Optional<Block> getPrimitiveImbuedLog() {
-        return Optionals.ofBlock(primitiveImbuedLog);
+    public Optional<Block> getPrimitiveAltLog() {
+        return Optionals.ofBlock(primitiveAltLog);
     }
 
     public void generateStateData(DTDataProvider.BlockState provider) {
         super.generateStateData(provider);
-        (this.imbuedBranchStateGenerator.get()).generate(provider, this);
+        (this.altBranchStateGenerator.get()).generate(provider, this);
     }
 
     public void addBranchTextures(BiConsumer<String, ResourceLocation> textureConsumer, ResourceLocation primitiveLogLocation, Block sourceBlock) {
-        Optional<Block> primImbued = getPrimitiveImbuedLog();
-        if (primImbued.isPresent() && primImbued.get() == sourceBlock){
+        Optional<Block> primAlt = getPrimitiveAltLog();
+        if (primAlt.isPresent() && primAlt.get() == sourceBlock){
             ResourceLocation bark = primitiveLogLocation;
             ResourceLocation rings = ResourceLocationUtils.suffix(primitiveLogLocation, "_top");
-            if (this.textureOverrides.containsKey("imbued_branch")) {
-                bark = this.textureOverrides.get("imbued_branch");
+            if (this.textureOverrides.containsKey("alt_branch")) {
+                bark = this.textureOverrides.get("alt_branch");
             }
 
-            if (this.textureOverrides.containsKey("imbued_branch_top")) {
-                rings = this.textureOverrides.get("imbued_branch_top");
+            if (this.textureOverrides.containsKey("alt_branch_top")) {
+                rings = this.textureOverrides.get("alt_branch_top");
             }
             textureConsumer.accept("bark", bark);
             textureConsumer.accept("rings", rings);
@@ -99,10 +99,10 @@ public class ImbuedLogFamily extends Family {
         super.addBranchTextures(textureConsumer, primitiveLogLocation, sourceBlock);
     }
 
-    public static class ImbuedBranchStateGenerator extends BranchStateGenerator{
+    public static class altBranchStateGenerator extends BranchStateGenerator{
         public @NotNull Dependencies gatherDependencies(@NotNull Family input) {
-            if (input instanceof ImbuedLogFamily castedInput)
-                return (new Dependencies()).append(BRANCH, castedInput.getImbuedBranch()).append(PRIMITIVE_LOG, castedInput.getPrimitiveImbuedLog());
+            if (input instanceof AltLogFamily castedInput)
+                return (new Dependencies()).append(BRANCH, castedInput.getAltBranch()).append(PRIMITIVE_LOG, castedInput.getPrimitiveAltLog());
             return super.gatherDependencies(input);
         }
     }

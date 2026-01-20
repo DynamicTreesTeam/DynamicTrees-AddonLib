@@ -20,6 +20,9 @@ import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.species.Species;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -28,6 +31,8 @@ import java.util.function.Supplier;
 
 @EventBusSubscriber(bus=EventBusSubscriber.Bus.MOD)
 public class DTAddonLibRegistries {
+
+    public static final TagKey<Block> CAN_BE_SPILED = BlockTags.create(DynamicTreesAddonLib.location("can_be_spiled"));
 
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, DynamicTreesAddonLib.MOD_ID);
     public static final Supplier<SoundEvent> FRUIT_BONK = registerSound("falling_fruit.bonk");
@@ -80,13 +85,14 @@ public class DTAddonLibRegistries {
             event.registerType(DynamicTreesAddonLib.location("cypress"), CypressSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("generates_on_stone"), GenOnStoneSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("bush"), Bush.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("fruit_log"), FruitLogSpecies.TYPE);
         }
     }
 
     @SubscribeEvent
     public static void registerFamilyTypes (final TypeRegistryEvent<Family> event) {
         if (event.isEntryOfType(Family.class)) {
-            event.registerType(DynamicTreesAddonLib.location("imbued_log"), ImbuedLogFamily.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("alt_log"), AltLogFamily.TYPE);
             event.registerType(DynamicTreesAddonLib.location("diagonal_palm"), DiagonalPalmFamily.TYPE);
             event.registerType(DynamicTreesAddonLib.location("stripped_transition_log"), TransitionLogFamily.TYPE_STRIPPED);
             event.registerType(DynamicTreesAddonLib.location("base_transition_log"), TransitionLogFamily.TYPE_BASE);

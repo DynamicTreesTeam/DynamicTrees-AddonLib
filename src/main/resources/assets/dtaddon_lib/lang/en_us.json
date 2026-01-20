@@ -1,4 +1,4 @@
-  {
+{
   "subtitle.dtaddon_lib.falling_fruit.bonk": "Player bonked by fruit",
   "block.dtaddon_lib.large_rooty_water":"Large Water Roots",
 
@@ -9,5 +9,14 @@
   "species.dtaddon_lib.cypress": "Cypress",
   "species.dtaddon_lib.fir": "Fir",
   "species.dtaddon_lib.palm": "Palm",
-  "species.dtaddon_lib.poplar": "Poplar"
+  "species.dtaddon_lib.poplar": "Poplar",
+
+  "block.dtaddon_lib.maple_spile": "Spile",
+  "block.dtaddon_lib.maple_spile_bucket": "Spile with Bucket",
+
+  "tooltip.dtaddon_lib.maple_spile_filled": "Dripping",
+  "tooltip.dtaddon_lib.maple_spile_not_filled": "Empty",
+  "tooltip.dtaddon_lib.maple_spile_bucket_filling": "Filled: %s",
+
+  "config.jade.plugin_dtaddon_lib.spile": "Spile"
 }

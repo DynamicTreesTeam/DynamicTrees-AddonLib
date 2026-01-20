@@ -30,9 +30,10 @@ public class DTAddonLibGenFeatures {
     public static final GenFeature TRUNK_BLOCK = new TrunkBlocksGenFeature(DynamicTreesAddonLib.location("trunk_block"));
     public static final GenFeature TRUNK_BRANCHES = new TrunkBranchesGenFeature(DynamicTreesAddonLib.location("trunk_branches"));
     public static final GenFeature SHROOMLIGHT = new ShroomlightGenFeature(DynamicTreesAddonLib.location("shroomlight"));
+    public static final GenFeature SYRUP_GEN = new SyrupGenFeature(DynamicTreesAddonLib.location("syrup"));
 
     public static void register(final Registry<GenFeature> registry) {
-        registry.registerAll(BIG_BOTTOM_FLARE, EXTRA_BOTTOM_FLARE, BIOME_PREDICATE_2, TOP_LEAVES,
+        registry.registerAll(BIG_BOTTOM_FLARE, EXTRA_BOTTOM_FLARE, BIOME_PREDICATE_2, TOP_LEAVES, SYRUP_GEN,
                 ALTERNATIVE_BRANCH, LUSH_VINES, ALT_LEAVES_HEIGHT_LIMIT, ABOVE_LEAVES_BLOCK, TRUNK_BRANCHES,
                 FALLEN_LEAVES, HANGER_VINES, SPORES, VINES_ON_TRUNK, PLANT_SUCKERS, CHANGE_GRASS, SHROOMLIGHT,
                 BANANA_FRUIT, DRAGON_FRUIT_FRUIT, PALM_FRUIT, RANDOM_STRIPPED_BRANCHES, TRUNK_BLOCK);
