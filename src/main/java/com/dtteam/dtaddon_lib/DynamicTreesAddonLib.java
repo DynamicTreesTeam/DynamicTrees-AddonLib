@@ -1,5 +1,7 @@
 package com.dtteam.dtaddon_lib;
 
+import com.dtteam.dtaddon_lib.init.DTAddonLibBlocks;
+import com.dtteam.dtaddon_lib.init.DTAddonLibClient;
 import com.dtteam.dtaddon_lib.init.DTAddonLibPlusRegistries;
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;
 import com.ferreusveritas.dynamictrees.api.GatherDataHelper;
@@ -33,6 +35,7 @@ public final class DynamicTreesAddonLib {
         eventBus.addListener(this::gatherData);
 
         DTAddonLibRegistries.SOUNDS.register(eventBus);
+        DTAddonLibBlocks.register(eventBus);
 
         if (ModList.get().isLoaded("dynamictreesplus")){
             eventBus.register(DTAddonLibPlusRegistries.class);
@@ -48,6 +51,7 @@ public final class DynamicTreesAddonLib {
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
+        DTAddonLibClient.setup();
     }
 
     private void gatherData(final GatherDataEvent event) {

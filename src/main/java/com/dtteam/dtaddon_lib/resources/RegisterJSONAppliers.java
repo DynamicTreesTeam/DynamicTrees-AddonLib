@@ -8,6 +8,7 @@ import com.ferreusveritas.dynamictrees.deserialisation.PropertyAppliers;
 import com.ferreusveritas.dynamictrees.tree.family.Family;
 import com.ferreusveritas.dynamictrees.tree.species.Species;
 import com.google.gson.JsonElement;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -31,7 +32,10 @@ public final class RegisterJSONAppliers {
                 .register("extra_soil_for_worldgen", GenOnExtraSoilSpecies.class, Block.class,
                 GenOnExtraSoilSpecies::setExtraSoil)
                 .register("soil_replacement_for_worldgen", GenOnExtraSoilSpecies.class, Block.class,
-                GenOnExtraSoilSpecies::setSoilReplacement);
+                GenOnExtraSoilSpecies::setSoilReplacement)
+                .register("log_drop_item", FruitLogSpecies.class, Item.class, FruitLogSpecies::setDropItem)
+                .register("log_drop_multiplier", FruitLogSpecies.class, Float.class, FruitLogSpecies::setMultiplier)
+                .register("log_drop_fake_log", FruitLogSpecies.class, Item.class, FruitLogSpecies::setFakeLog);
     }
 
     public static void registerFamilyAppliers(PropertyAppliers<Family, JsonElement> appliers) {

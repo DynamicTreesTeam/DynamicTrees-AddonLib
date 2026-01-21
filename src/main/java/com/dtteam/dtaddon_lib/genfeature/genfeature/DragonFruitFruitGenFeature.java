@@ -1,6 +1,5 @@
 package com.dtteam.dtaddon_lib.genfeature.genfeature;
 
-
 import com.ferreusveritas.dynamictrees.compat.season.SeasonHelper;
 import com.ferreusveritas.dynamictrees.systems.fruit.Fruit;
 import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeatureConfiguration;

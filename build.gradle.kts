@@ -89,7 +89,7 @@ dependencies {
     implementation(fg.deobf("com.ferreusveritas.dynamictreesplus:DynamicTreesPlus-$mcVersion:${property("dynamicTreesPlusVersion")}"))
 
     //DynamicTrees Tools/Utilities
-    runtimeOnly(fg.deobf("curse.maven:jade-324717:5072729"))
+    implementation(fg.deobf("curse.maven:jade-324717:5072729"))
     runtimeOnly(fg.deobf("curse.maven:jei-238222:5101366"))
     runtimeOnly(fg.deobf("curse.maven:cc-tweaked-282001:5118388"))
     runtimeOnly(fg.deobf("curse.maven:suggestion-provider-fix-469647:4591193"))

@@ -19,6 +19,9 @@ import com.ferreusveritas.dynamictrees.systems.pod.Pod;
 import com.ferreusveritas.dynamictrees.tree.family.Family;
 import com.ferreusveritas.dynamictrees.tree.species.Species;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
@@ -28,6 +31,7 @@ import net.minecraftforge.registries.RegistryObject;
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class DTAddonLibRegistries {
 
+    public static final TagKey<Block> CAN_BE_SPILED = BlockTags.create(DynamicTreesAddonLib.location("can_be_spiled"));
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DynamicTreesAddonLib.MOD_ID);
     public static final RegistryObject<SoundEvent> FRUIT_BONK = registerSound("falling_fruit.bonk");
 
@@ -70,6 +74,7 @@ public class DTAddonLibRegistries {
         event.registerType(DynamicTreesAddonLib.location("cypress"), CypressSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("generates_on_stone"), GenOnStoneSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("bush"), Bush.TYPE);
+        event.registerType(DynamicTreesAddonLib.location("fruit_log"), FruitLogSpecies.TYPE);
     }
 
     @SubscribeEvent
