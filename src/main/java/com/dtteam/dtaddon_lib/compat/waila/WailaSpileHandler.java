@@ -36,14 +36,14 @@ public class WailaSpileHandler implements IBlockComponentProvider {
         if (accessor.getBlockState().hasProperty(MapleSpileBlock.FILLED)) {
             boolean filled = accessor.getBlockState().getValue(MapleSpileBlock.FILLED);
             Component filledText = filled
-                    ? Component.translatable("tooltip.dtphc2.maple_spile_filled")
-                    : Component.translatable("tooltip.dtphc2.maple_spile_not_filled");
+                    ? Component.translatable("tooltip.dtaddon_lib.maple_spile_filled")
+                    : Component.translatable("tooltip.dtaddon_lib.maple_spile_not_filled");
             tooltip.add(filledText);
         }
         if (accessor.getBlockState().hasProperty(MapleSpileBucketBlock.FILLING)) {
             int filling = accessor.getBlockState().getValue(MapleSpileBucketBlock.FILLING);
             float percent = filling / 3.0F * 100;
-            tooltip.add(Component.translatable("tooltip.dtphc2.maple_spile_bucket_filling", String.format("%.0f%%", percent)));
+            tooltip.add(Component.translatable("tooltip.dtaddon_lib.maple_spile_bucket_filling", String.format("%.0f%%", percent)));
         }
 
         // ADD ICON

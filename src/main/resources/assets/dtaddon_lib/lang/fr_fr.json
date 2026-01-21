@@ -18,5 +18,5 @@
   "tooltip.dtaddon_lib.maple_spile_not_filled": "Vide",
   "tooltip.dtaddon_lib.maple_spile_bucket_filling": "Rempli: %s",
 
-  "config.jade.plugin_dtaddon_lib.maple_spile": "Déversoir"
+  "config.jade.plugin_dtaddon_lib.spile": "Déversoir"
 }
