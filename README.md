@@ -1,12 +1,12 @@
-# DynamicTrees-Addon-Lib
+# DynamicTrees-Addon-Lib [![](http://cf.way2muchnoise.eu/versions/dynamic-trees-addon-lib.svg) ![](http://cf.way2muchnoise.eu/dynamic-trees-addon-lib.svg)](https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-addon-lib)
 Official Library for DynamicTrees. Adds custom logics and features for treepacks or addons.
 
 This branch is for the 1.20.x version of Minecraft.
 
 # Links
-- CurseForge
-- Modrinth
-- Discord
+- [CurseForge](https://www.curseforge.com/minecraft/mc-mods/dynamic-trees-addon-lib)
+- [Modrinth](https://modrinth.com/mod/dynamic-trees-addon-lib)
+- [Discord](https://discord.gg/A4FCBS3)
 
 # Compiling
 
