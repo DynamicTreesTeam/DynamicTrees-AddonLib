@@ -4,7 +4,7 @@ import com.ferreusveritas.dynamictrees.api.registry.TypedRegistry;
 import com.ferreusveritas.dynamictrees.block.branch.BasicBranchBlock;
 import com.ferreusveritas.dynamictrees.block.branch.BranchBlock;
 import com.ferreusveritas.dynamictrees.tree.family.Family;
-import com.dtteam.dtaddon_lib.blocks.TransitionLogBranchBlock;
+import com.dtteam.dtaddon_lib.blocks.branch.TransitionLogBranchBlock;
 import net.minecraft.resources.ResourceLocation;
 
 public class TransitionLogFamily extends Family {

@@ -1,8 +1,9 @@
-package com.dtteam.dtaddon_lib.blocks;
+package com.dtteam.dtaddon_lib.blocks.leaves;
 
 import com.ferreusveritas.dynamictrees.api.registry.TypedRegistry;
 import com.ferreusveritas.dynamictrees.block.leaves.DynamicLeavesBlock;
 import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
+import com.ferreusveritas.dynamictrees.block.leaves.ScruffyLeavesProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
@@ -10,11 +11,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class ParticleLeavesProperties extends LeavesProperties {
+public class ScruffyParticleLeavesProperties extends ScruffyLeavesProperties {
 
-    public static final TypedRegistry.EntryType<LeavesProperties> TYPE = TypedRegistry.newType(ParticleLeavesProperties::new);
+    public static final TypedRegistry.EntryType<LeavesProperties> TYPE = TypedRegistry.newType(ScruffyParticleLeavesProperties::new);
 
-    public ParticleLeavesProperties(ResourceLocation registryName) {
+    public ScruffyParticleLeavesProperties(ResourceLocation registryName) {
         super(registryName);
     }
 

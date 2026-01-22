@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.blocks;
+package com.dtteam.dtaddon_lib.blocks.soil;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;

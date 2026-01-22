@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.blocks;
+package com.dtteam.dtaddon_lib.blocks.fruit;
 
 import com.google.common.collect.Lists;
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;

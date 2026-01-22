@@ -1,7 +1,10 @@
 package com.dtteam.dtaddon_lib.init;
 
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
-import com.dtteam.dtaddon_lib.blocks.*;
+import com.dtteam.dtaddon_lib.blocks.leaves.CobwebLeavesProperties;
+import com.dtteam.dtaddon_lib.blocks.leaves.ParticleLeavesProperties;
+import com.dtteam.dtaddon_lib.blocks.leaves.ScruffyParticleLeavesProperties;
+import com.dtteam.dtaddon_lib.blocks.soil.LavaSoilProperties;
 import com.dtteam.dtaddon_lib.cell.DTAddonLibCellKits;
 import com.dtteam.dtaddon_lib.fruits.*;
 import com.dtteam.dtaddon_lib.genfeature.DTAddonLibGenFeatures;
@@ -12,6 +15,7 @@ import com.ferreusveritas.dynamictrees.api.cell.CellKit;
 import com.ferreusveritas.dynamictrees.api.registry.RegistryEvent;
 import com.ferreusveritas.dynamictrees.api.registry.TypeRegistryEvent;
 import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
+import com.ferreusveritas.dynamictrees.block.rooty.SoilProperties;
 import com.ferreusveritas.dynamictrees.growthlogic.GrowthLogicKit;
 import com.ferreusveritas.dynamictrees.systems.fruit.Fruit;
 import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeature;
@@ -70,7 +74,8 @@ public class DTAddonLibRegistries {
         event.registerType(DynamicTreesAddonLib.location("twiglet"), TwigletSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("generates_underwater"), GenUnderwaterSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("generates_on_extra_soil"), GenOnExtraSoilSpecies.TYPE);
-        event.registerType(DynamicTreesAddonLib.location("lament"), LamentSpecies.TYPE);
+        event.registerType(DynamicTreesAddonLib.location("place_alternate"), PlaceAlternateSpecies.TYPE);
+        event.registerType(DynamicTreesAddonLib.location("grow_on_lava"), GrowOnLavaSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("cypress"), CypressSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("generates_on_stone"), GenOnStoneSpecies.TYPE);
         event.registerType(DynamicTreesAddonLib.location("bush"), Bush.TYPE);
@@ -96,6 +101,11 @@ public class DTAddonLibRegistries {
     public static void registerPodType(final TypeRegistryEvent<Pod> event) {
         event.registerType(DynamicTreesAddonLib.location("palm"), PalmPod.TYPE);
         event.registerType(DynamicTreesAddonLib.location("falling_palm"), FallingPalmPod.TYPE);
+    }
+
+    @SubscribeEvent
+    public static void registerSoilPropertiesType(final TypeRegistryEvent<SoilProperties> event) {
+        event.registerType(DynamicTreesAddonLib.location("lava"), LavaSoilProperties.TYPE);
     }
 
 }
