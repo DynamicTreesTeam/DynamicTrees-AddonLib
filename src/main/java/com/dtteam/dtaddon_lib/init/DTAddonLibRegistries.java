@@ -1,7 +1,9 @@
 package com.dtteam.dtaddon_lib.init;
 
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
-import com.dtteam.dtaddon_lib.blocks.*;
+import com.dtteam.dtaddon_lib.blocks.leaves.CobwebLeavesProperties;
+import com.dtteam.dtaddon_lib.blocks.leaves.ParticleLeavesProperties;
+import com.dtteam.dtaddon_lib.blocks.leaves.ScruffyParticleLeavesProperties;
 import com.dtteam.dtaddon_lib.cell.DTAddonLibCellKits;
 import com.dtteam.dtaddon_lib.fruits.*;
 import com.dtteam.dtaddon_lib.genfeature.DTAddonLibGenFeatures;
@@ -81,7 +83,8 @@ public class DTAddonLibRegistries {
             event.registerType(DynamicTreesAddonLib.location("twiglet"), TwigletSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("generates_underwater"), GenUnderwaterSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("generates_on_extra_soil"), GenOnExtraSoilSpecies.TYPE);
-            event.registerType(DynamicTreesAddonLib.location("lament"), LamentSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("place_alternate"), PlaceAlternateLavaSpecies.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("grow_on_lava"), GrowOnLavaSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("cypress"), CypressSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("generates_on_stone"), GenOnStoneSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("bush"), Bush.TYPE);

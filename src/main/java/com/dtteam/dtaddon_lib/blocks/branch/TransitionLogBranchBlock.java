@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.blocks;
+package com.dtteam.dtaddon_lib.blocks.branch;
 
 import com.dtteam.dynamictrees.block.branch.BranchBlock;
 import com.dtteam.dynamictrees.block.branch.ThickBranchBlock;

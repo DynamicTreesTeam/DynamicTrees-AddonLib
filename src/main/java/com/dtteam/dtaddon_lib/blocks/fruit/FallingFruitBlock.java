@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.blocks;
+package com.dtteam.dtaddon_lib.blocks.fruit;
 
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
 import com.dtteam.dynamictrees.block.fruit.Fruit;

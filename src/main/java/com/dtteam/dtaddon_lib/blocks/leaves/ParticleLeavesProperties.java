@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.blocks;
+package com.dtteam.dtaddon_lib.blocks.leaves;
 
 import com.dtteam.dynamictrees.api.registry.TypedRegistry;
 import com.dtteam.dynamictrees.block.leaves.DynamicLeavesBlock;

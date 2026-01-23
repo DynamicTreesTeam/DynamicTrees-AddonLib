@@ -4,7 +4,7 @@ import com.dtteam.dynamictrees.api.registry.TypedRegistry;
 import com.dtteam.dynamictrees.block.branch.BasicBranchBlock;
 import com.dtteam.dynamictrees.block.branch.BranchBlock;
 import com.dtteam.dynamictrees.tree.family.Family;
-import com.dtteam.dtaddon_lib.blocks.TransitionLogBranchBlock;
+import com.dtteam.dtaddon_lib.blocks.branch.TransitionLogBranchBlock;
 import net.minecraft.resources.ResourceLocation;
 
 // From DTRU

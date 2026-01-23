@@ -27,7 +27,7 @@ public final class RegisterJSONAppliers {
     }
 
     public static void registerSpeciesAppliers(PropertyAppliers<Species, JsonElement> appliers) {
-        appliers.register("alternative_species", LamentSpecies.class, Species.class, LamentSpecies::setAltSpecies)
+        appliers.register("alternative_species", PlaceAlternateLavaSpecies.class, Species.class, PlaceAlternateLavaSpecies::setAltSpecies)
                 .register("extra_soil_for_worldgen", GenOnExtraSoilSpecies.class, Block.class, GenOnExtraSoilSpecies::setExtraSoil)
                 .register("soil_replacement_for_worldgen", GenOnExtraSoilSpecies.class, Block.class, GenOnExtraSoilSpecies::setSoilReplacement)
                 .register("extra_soil_for_worldgen", GenOnExtraSoilSpecies.class, Block.class, GenOnExtraSoilSpecies::setExtraSoil)

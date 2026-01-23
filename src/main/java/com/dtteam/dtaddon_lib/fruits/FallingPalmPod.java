@@ -3,7 +3,7 @@ package com.dtteam.dtaddon_lib.fruits;
 import com.dtteam.dynamictrees.api.registry.TypedRegistry;
 import com.dtteam.dynamictrees.block.pod.Pod;
 import com.dtteam.dynamictrees.block.pod.PodBlock;
-import com.dtteam.dtaddon_lib.blocks.FallingPodBlock;
+import com.dtteam.dtaddon_lib.blocks.fruit.FallingPodBlock;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 
