@@ -34,7 +34,9 @@ public final class RegisterJSONAppliers {
                 .register("log_drop_item", FruitLogSpecies.class, Item.class, FruitLogSpecies::setDropItem)
                 .register("log_drop_item_multiplier", FruitLogSpecies.class, Float.class, FruitLogSpecies::setItemMultiplier)
                 .register("log_drop_fake_log", FruitLogSpecies.class, Item.class, FruitLogSpecies::setFakeLog)
-                .register("log_drop_fake_log_multiplier", FruitLogSpecies.class, Float.class, FruitLogSpecies::setFakeLogMultiplier);
+                .register("log_drop_fake_log_multiplier", FruitLogSpecies.class, Float.class, FruitLogSpecies::setFakeLogMultiplier)
+                .registerArrayApplier("underwater_acceptable_soils", GenUnderwaterSpecies.class, String.class, GenUnderwaterSpecies::addAcceptableUnderwaterSoilsForWorldGen)
+                .register("max_depth", GenUnderwaterSpecies.class, Integer.class, GenUnderwaterSpecies::setMaxDepth);
     }
 
     public static void registerFamilyAppliers(PropertyAppliers<Family, JsonElement> appliers) {

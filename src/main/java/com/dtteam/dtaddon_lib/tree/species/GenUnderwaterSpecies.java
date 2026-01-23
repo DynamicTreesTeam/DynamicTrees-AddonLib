@@ -2,6 +2,7 @@ package com.dtteam.dtaddon_lib.tree.species;
 
 import com.dtteam.dynamictrees.api.registry.TypedRegistry;
 import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
+import com.dtteam.dynamictrees.block.soil.SoilHelper;
 import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dynamictrees.worldgen.JoCode;
@@ -16,11 +17,13 @@ public class GenUnderwaterSpecies extends Species {
 
     public static final TypedRegistry.EntryType<Species> TYPE = createDefaultType(GenUnderwaterSpecies::new);
 
+    protected int underwaterSoilTypeFlags = 0;
+    protected int maxDepth = 7;
+
     public GenUnderwaterSpecies(ResourceLocation name, Family family, LeavesProperties leavesProperties) {
         super(name, family, leavesProperties);
     }
 
-    private static final int maxDepth = 7;
     public boolean isAcceptableSoilForWorldgen(LevelAccessor world, BlockPos pos, BlockState soilBlockState) {
         final boolean isAcceptableSoil = isAcceptableSoil(world, pos, soilBlockState);
 
@@ -46,11 +49,23 @@ public class GenUnderwaterSpecies extends Species {
                 rootPos.move(Direction.DOWN);
                 final BlockState downState = world.getBlockState(rootPos);
 
-                if (!isWater(downState) && isAcceptableSoilForWorldgen(downState))
+                if (!isWater(downState) && isAcceptableSoilUnderWater(downState))
                     break;
             }
         }
         return super.preGeneration(world, rootPos, radius, facing, worldGen, joCode);
     }
 
+    public boolean isAcceptableSoilUnderWater(BlockState soilBlockState) {
+        return SoilHelper.isSoilAcceptable(soilBlockState, this.worldGenSoilTypeFlags | underwaterSoilTypeFlags);
+    }
+
+    public Species addAcceptableUnderwaterSoilsForWorldGen(String... soilTypes) {
+        underwaterSoilTypeFlags |= SoilHelper.getSoilFlags(soilTypes);
+        return this;
+    }
+
+    public void setMaxDepth(int maxDepth) {
+        this.maxDepth = maxDepth;
+    }
 }
