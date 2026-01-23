@@ -85,8 +85,6 @@ public class DTAddonLibRegistries {
             event.registerType(DynamicTreesAddonLib.location("generates_on_extra_soil"), GenOnExtraSoilSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("place_alternate"), PlaceAlternateLavaSpecies.TYPE);
             event.registerType(DynamicTreesAddonLib.location("grow_on_lava"), GrowOnLavaSpecies.TYPE);
-            event.registerType(DynamicTreesAddonLib.location("generates_on_stone"), GenOnStoneSpecies.TYPE);
-            event.registerType(DynamicTreesAddonLib.location("bush"), Bush.TYPE);
             event.registerType(DynamicTreesAddonLib.location("fruit_log"), FruitLogSpecies.TYPE);
         }
     }
