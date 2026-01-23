@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.tree.species;
+package com.dtteam.dtaddon_lib.tree.species.mushroom;
 
 import com.dtteam.dynamictrees.api.registry.TypedRegistry;
 import com.dtteam.dynamictrees.systems.nodemapper.NetVolumeNode;
