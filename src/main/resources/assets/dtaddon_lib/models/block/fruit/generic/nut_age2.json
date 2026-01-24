@@ -1,0 +1,22 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"render_type": "minecraft:cutout_mipped",
+	"textures": {
+		"particle": "#fruit"
+	},
+	"elements": [
+		{
+			"from": [6, 11, 6],
+			"to": [10, 16, 10],
+			"faces": {
+				"north": {"uv": [3, 5, 7, 10], "texture": "#fruit"},
+				"east": {"uv": [3, 5, 7, 10], "texture": "#fruit"},
+				"south": {"uv": [3, 5, 7, 10], "texture": "#fruit"},
+				"west": {"uv": [3, 5, 7, 10], "texture": "#fruit"},
+				"up": {"uv": [3, 0, 7, 4], "texture": "#fruit"},
+				"down": {"uv": [3, 10, 7, 14], "texture": "#fruit"}
+			}
+		}
+	]
+}

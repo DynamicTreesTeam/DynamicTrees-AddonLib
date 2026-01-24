@@ -15,6 +15,7 @@ import com.dtteam.dynamictrees.event.RegistryEvent;
 import com.dtteam.dynamictrees.event.TypeRegistryEvent;
 import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
 import com.dtteam.dynamictrees.systems.growthlogic.GrowthLogicKit;
+import com.dtteam.dynamictrees.block.CommonVoxelShapes;
 import com.dtteam.dynamictrees.block.fruit.Fruit;
 import com.dtteam.dynamictrees.systems.genfeature.GenFeature;
 import com.dtteam.dynamictrees.block.pod.Pod;
@@ -25,6 +26,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -39,11 +42,26 @@ public class DTAddonLibRegistries {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, DynamicTreesAddonLib.MOD_ID);
     public static final Supplier<SoundEvent> FRUIT_BONK = registerSound("falling_fruit.bonk");
 
+    public static final VoxelShape DRAGON_FRUIT_CACTUS_SAPLING_SHAPE = Shapes.box(
+                    0.375f, 0.0f, 0.375f,
+                    0.625f, 0.5f, 0.625f);
+
+    public static final VoxelShape BANANA_SAPLING_SHAPE = Shapes.box(
+                    0.375f, 0.0f, 0.375f,
+                    0.625f, 0.9375f, 0.625f);
+
     public static void setup() {
+        ShapeRegitries();
         DTAddonLibCapShapeRegistries.register();
     }
+
     public static Supplier<SoundEvent> registerSound (String name){
         return SOUNDS.register(name, ()-> SoundEvent.createVariableRangeEvent(DynamicTreesAddonLib.location(name)));
+    }
+
+    public static void ShapeRegitries() {
+        CommonVoxelShapes.SHAPES.put(DynamicTreesAddonLib.location("dragon_fruit_cactus").toString(), DRAGON_FRUIT_CACTUS_SAPLING_SHAPE);
+        CommonVoxelShapes.SHAPES.put(DynamicTreesAddonLib.location("banana_sapling").toString(), BANANA_SAPLING_SHAPE);
     }
 
     @SubscribeEvent
