@@ -1,12 +1,13 @@
 package com.dtteam.dtaddon_lib.blocks.fruit;
 
-import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
 import com.dtteam.dynamictrees.block.fruit.Fruit;
 import com.dtteam.dynamictrees.block.fruit.FruitBlock;
 import com.dtteam.dynamictrees.block.soil.SoilBlock;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.protocol.game.DebugPackets;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -22,15 +23,17 @@ import java.util.List;
 
 public class FallingFruitBlock extends FruitBlock implements IFallingFruit {
 
-    DamageSource damageSource;
+    private final ResourceKey<DamageType> damageTypeKey;
 
     public static float randomFruitFallChance = 0.005f;
     public static float playerDistanceToFall = 10f;
 
     public FallingFruitBlock(Properties properties, Fruit fruit) {
         super(properties, fruit);
-        DamageType damageType = new DamageType(DynamicTreesAddonLib.MOD_ID+".falling_fruit."+ fruit.getRegistryName().getPath(), 1F);
-        damageSource = new DamageSource(Holder.direct(damageType));
+        this.damageTypeKey = ResourceKey.create(
+                Registries.DAMAGE_TYPE,
+                ResourceLocation.fromNamespaceAndPath(fruit.getRegistryName().getNamespace(), "falling_fruit/" + fruit.getRegistryName().getPath())
+        );
     }
 
     @Override
@@ -61,7 +64,9 @@ public class FallingFruitBlock extends FruitBlock implements IFallingFruit {
 
     @Override
     public DamageSource getDamageSource(Level level) {
-        return damageSource;
+        return new DamageSource(level.registryAccess()
+                .registryOrThrow(Registries.DAMAGE_TYPE)
+                .getHolderOrThrow(damageTypeKey));
     }
 
     @Override

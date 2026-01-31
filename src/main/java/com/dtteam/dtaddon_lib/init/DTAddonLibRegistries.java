@@ -1,9 +1,7 @@
 package com.dtteam.dtaddon_lib.init;
 
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
-import com.dtteam.dtaddon_lib.blocks.leaves.CobwebLeavesProperties;
-import com.dtteam.dtaddon_lib.blocks.leaves.ParticleLeavesProperties;
-import com.dtteam.dtaddon_lib.blocks.leaves.ScruffyParticleLeavesProperties;
+import com.dtteam.dtaddon_lib.blocks.leaves.*;
 import com.dtteam.dtaddon_lib.cell.DTAddonLibCellKits;
 import com.dtteam.dtaddon_lib.fruits.*;
 import com.dtteam.dtaddon_lib.genfeature.DTAddonLibGenFeatures;
@@ -91,6 +89,7 @@ public class DTAddonLibRegistries {
             event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebLeavesProperties.TYPE);
             event.registerType(DynamicTreesAddonLib.location("particle"), ParticleLeavesProperties.TYPE);
             event.registerType(DynamicTreesAddonLib.location("scruffy_particle"), ScruffyParticleLeavesProperties.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("dragon_fruit"), DragonFruitLeavesProperties.TYPE);
         }
     }
 
