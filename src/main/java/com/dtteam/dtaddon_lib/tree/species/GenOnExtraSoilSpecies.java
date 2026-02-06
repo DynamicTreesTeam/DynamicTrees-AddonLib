@@ -9,14 +9,15 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class GenOnExtraSoilSpecies extends Species {
 
     public static final TypedRegistry.EntryType<Species> TYPE = createDefaultType(GenOnExtraSoilSpecies::new);
 
-    private Block extraSoil;
-    private Block soilReplacement;
+    private Block extraSoil = Blocks.STONE;
+    private Block soilReplacement = Blocks.GRAVEL;
 
     public GenOnExtraSoilSpecies(ResourceLocation name, Family family, LeavesProperties leavesProperties) {
         super(name, family, leavesProperties);

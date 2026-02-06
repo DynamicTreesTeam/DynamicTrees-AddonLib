@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.tree.species;
+package com.dtteam.dtaddon_lib.tree.species.mushroom;
 
 import com.ferreusveritas.dynamictrees.api.registry.TypedRegistry;
 import com.ferreusveritas.dynamictrees.systems.nodemapper.NetVolumeNode;

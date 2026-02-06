@@ -1,5 +1,4 @@
 {
-  "type": "dtaddon_lib:cypress",
   "family": "dtaddon_lib:big_oak",
   "generate_seed": false,
   "generate_sapling": true,

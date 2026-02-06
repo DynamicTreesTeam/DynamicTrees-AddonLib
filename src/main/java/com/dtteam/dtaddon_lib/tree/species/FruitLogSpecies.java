@@ -20,7 +20,8 @@ public class FruitLogSpecies extends Species {
 
     //private ResourceLocation dropItemLoc = new ResourceLocation("air");
     private Item dropItem = null;
-    private float multiplier = 1;
+    private float item_multiplier = 1;
+    private float fake_log_multiplier = 1;
     private Item fakeLog = Items.AIR;
 
     public FruitLogSpecies(ResourceLocation name, Family family, LeavesProperties leavesProperties) {
@@ -44,7 +45,7 @@ public class FruitLogSpecies extends Species {
             }
         } else {
             if (dropItem != Items.AIR) {
-                int itemVol = (int)(vol * multiplier);
+                int itemVol = (int)(vol * item_multiplier);
                 ItemStack stack = new ItemStack(dropItem);
                 while (itemVol > 0) {
                     ItemStack drop = stack.copy();
@@ -54,7 +55,7 @@ public class FruitLogSpecies extends Species {
                 }
             }
             if (fakeLog != Items.AIR){
-                int logVol = vol;
+                int logVol = (int)(vol * fake_log_multiplier);
                 ItemStack logStack = new ItemStack(fakeLog);
                 while (logVol > 0) {
                     ItemStack drop = logStack.copy();
@@ -71,11 +72,15 @@ public class FruitLogSpecies extends Species {
 //        this.dropItemLoc = resLoc;
 //    }
     public void setDropItem(Item item) {
-        this.dropItem = item;
+    this.dropItem = item;
+}
+
+    public void setItemMultiplier(float multiplier) {
+        this.item_multiplier = multiplier;
     }
 
-    public void setMultiplier(float multiplier) {
-        this.multiplier = multiplier;
+    public void setFakeLogMultiplier(float multiplier) {
+        this.fake_log_multiplier = multiplier;
     }
 
     public void setFakeLog(Item fakeLog) {

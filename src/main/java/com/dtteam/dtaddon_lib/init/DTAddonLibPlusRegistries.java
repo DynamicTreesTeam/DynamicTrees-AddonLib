@@ -1,12 +1,10 @@
 package com.dtteam.dtaddon_lib.init;
 
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
-import com.dtteam.dtaddon_lib.blocks.*;
 import com.dtteam.dtaddon_lib.genfeature.DTAddonLibGenFeaturesPlus;
 import com.dtteam.dtaddon_lib.growthlogic.DTAddonLibThicknessLogicKits;
 import com.dtteam.dtaddon_lib.mushroomshape.DTAddonLibMushroomShapeKits;
-import com.dtteam.dtaddon_lib.tree.family.*;
-import com.dtteam.dtaddon_lib.tree.species.*;
+import com.dtteam.dtaddon_lib.tree.species.mushroom.*;
 import com.ferreusveritas.dynamictrees.api.registry.RegistryEvent;
 import com.ferreusveritas.dynamictrees.api.registry.TypeRegistryEvent;
 import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeature;
