@@ -7,7 +7,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.GrowthLogicKitConfiguration;
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 
 import java.util.LinkedList;
@@ -19,7 +19,7 @@ public class ConberryLogic extends GrowthLogicKit {
     public static final ConfigurationProperty<Integer> MINIMUM_TRUNK_BRANCHES = ConfigurationProperty.integer("minimum_trunk_branches");
     public static final ConfigurationProperty<Integer> SPLIT_ENDS_ENERGY = ConfigurationProperty.integer("split_ends_energy");
 
-    public ConberryLogic(ResourceLocation registryName) {
+    public ConberryLogic(Identifier registryName) {
         super(registryName);
     }
 
@@ -56,7 +56,7 @@ public class ConberryLogic extends GrowthLogicKit {
     private List<Direction> getBranchesAround (Level level, BlockPos pos, Direction fromDir){
         List<Direction> validDirs = new LinkedList<>();
         for (Direction dir : Direction.values()){
-            if (dir != fromDir && TreeHelper.isBranch(level.getBlockState(pos.offset(dir.getNormal())))){
+            if (dir != fromDir && TreeHelper.isBranch(level.getBlockState(pos.offset(dir.getUnitVec3i())))){
                 validDirs.add(dir);
             }
         }

@@ -12,7 +12,7 @@ import com.dtteam.dynamictrees.systems.nodemapper.FindEndsNode;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -26,7 +26,7 @@ public class TrunkBranchesGenFeature extends GenFeature {
     public static final ConfigurationProperty<Block> BLOCK = ConfigurationProperty.block("block");
     public static final ConfigurationProperty<Integer> BLOCKS_PER_BRANCH = ConfigurationProperty.integer("blocks_per_branch");
 
-    public TrunkBranchesGenFeature(ResourceLocation registryName) {
+    public TrunkBranchesGenFeature(Identifier registryName) {
         super(registryName);
     }
     @Override
@@ -69,7 +69,7 @@ public class TrunkBranchesGenFeature extends GenFeature {
     private boolean placeAllSideBranches(int height, int hash, float chance, LevelAccessor level, BlockPos rootPos, Block block, boolean worldgen){
         for (int y=2; y < height; y++){
             for (Direction dir : Direction.Plane.HORIZONTAL){
-                BlockPos pos = rootPos.above(y).offset(dir.getNormal());
+                BlockPos pos = rootPos.above(y).offset(dir.getUnitVec3i());
                 BlockState existing = level.getBlockState(pos);
                 if (CoordUtils.coordHashCode(pos, 2) % hash == 0
                         && (existing.canBeReplaced() || existing.getBlock() instanceof TrunkShellBlock)

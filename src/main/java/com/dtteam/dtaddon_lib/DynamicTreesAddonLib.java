@@ -1,7 +1,7 @@
 package com.dtteam.dtaddon_lib;
 
 import com.dtteam.dtaddon_lib.init.DTAddonLibBlocks;
-import com.dtteam.dtaddon_lib.init.DTAddonLibPlusRegistries;
+//import com.dtteam.dtaddon_lib.init.DTAddonLibPlusRegistries;
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;
 import com.dtteam.dynamictrees.block.fruit.Fruit;
 import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
@@ -12,7 +12,7 @@ import com.dtteam.dynamictrees.registry.NeoForgeRegistryHandler;
 import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.species.Species;
 //import com.dtteam.dynamictreesplus.block.mushroom.CapProperties;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.Mod;
@@ -29,15 +29,16 @@ public final class DynamicTreesAddonLib {
     public DynamicTreesAddonLib(IEventBus eventBus, ModContainer container) {
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::clientSetup);
-        eventBus.addListener(this::gatherData);
+        eventBus.addListener(this::gatherServerData);
+        eventBus.addListener(this::gatherClientData);
 
         DTAddonLibBlocks.register(eventBus);
 
         DTAddonLibRegistries.SOUNDS.register(eventBus);
 
-        if (ModList.get().isLoaded("dynamictreesplus")) {
-            eventBus.register(DTAddonLibPlusRegistries.class);
-        }
+//        if (ModList.get().isLoaded("dynamictreesplus")) {
+//            eventBus.register(DTAddonLibPlusRegistries.class);
+//        }
 
         NeoForgeRegistryHandler.setup(MOD_ID, eventBus);
     }
@@ -49,8 +50,8 @@ public final class DynamicTreesAddonLib {
     private void clientSetup(final FMLClientSetupEvent event) {
     }
 
-    private void gatherData(final GatherDataEvent event) {
-        GatherDataHelper.gatherAllData(MOD_ID, event,
+    private void gatherServerData(final GatherDataEvent.Server event) {
+        GatherDataHelper.gatherServerData(MOD_ID, event,
                 SoilProperties.REGISTRY,
                 Family.REGISTRY,
                 Species.REGISTRY,
@@ -61,8 +62,20 @@ public final class DynamicTreesAddonLib {
         );
     }
 
-    public static ResourceLocation location(final String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+    private void gatherClientData(final GatherDataEvent.Client event) {
+        GatherDataHelper.gatherClientData(MOD_ID, event,
+                SoilProperties.REGISTRY,
+                Family.REGISTRY,
+                Species.REGISTRY,
+                LeavesProperties.REGISTRY,
+                Fruit.REGISTRY,
+                Pod.REGISTRY
+                //,CapProperties.REGISTRY
+        );
+    }
+
+    public static Identifier location(final String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
 
 }

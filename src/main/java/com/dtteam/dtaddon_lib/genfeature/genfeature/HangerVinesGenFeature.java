@@ -5,13 +5,13 @@ import com.dtteam.dynamictrees.systems.genfeature.VinesGenFeature;
 import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 
 // From DTAether
 public class HangerVinesGenFeature extends VinesGenFeature {
 
-    public HangerVinesGenFeature(ResourceLocation registryName) {
+    public HangerVinesGenFeature(Identifier registryName) {
         super(registryName);
     }
 

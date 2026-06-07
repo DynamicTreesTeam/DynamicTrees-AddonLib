@@ -7,7 +7,7 @@ import com.dtteam.dynamictrees.systems.genfeature.GenFeatureConfiguration;
 import com.dtteam.dynamictrees.systems.genfeature.context.FullGenerationContext;
 import com.dtteam.dynamictrees.tree.species.Species;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelSimulatedReader;
 import net.minecraft.world.level.block.Block;
@@ -21,7 +21,7 @@ public class ChangeGrassGenFeature extends GenFeature {
     public static final ConfigurationProperty<Integer> MAX_DEPTH = ConfigurationProperty.integer("max_depth");
     public static final ConfigurationProperty<String> REPLACEABLE_SOILS = ConfigurationProperty.string("replaceable_soils");
 
-    public ChangeGrassGenFeature(ResourceLocation registryName) {
+    public ChangeGrassGenFeature(Identifier registryName) {
         super(registryName);
     }
 

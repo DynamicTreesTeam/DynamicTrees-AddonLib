@@ -8,7 +8,7 @@ import com.dtteam.dynamictrees.systems.genfeature.context.PostGenerationContext;
 import com.dtteam.dynamictrees.systems.genfeature.context.PostGrowContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -29,7 +29,7 @@ public class TrunkBlocksGenFeature extends GenFeature {
     public static final ConfigurationProperty<Integer> WORLDGEN_MAX_COUNT = ConfigurationProperty.integer("worldgen_max_count");
     public static final ConfigurationProperty<Block> BLOCK = ConfigurationProperty.block("block");
 
-    public TrunkBlocksGenFeature(ResourceLocation registryName) {
+    public TrunkBlocksGenFeature(Identifier registryName) {
         super(registryName);
     }
 
@@ -97,7 +97,7 @@ public class TrunkBlocksGenFeature extends GenFeature {
                 if (branchFound) break;
             }
             for (Direction dir : Direction.Plane.HORIZONTAL){
-                BlockPos offsetPos = testPos.offset(dir.getNormal());
+                BlockPos offsetPos = testPos.offset(dir.getUnitVec3i());
                 BlockState state = level.getBlockState(offsetPos);
                 if (state.canBeReplaced()){
                     found.add(new Pair<>(offsetPos, dir));

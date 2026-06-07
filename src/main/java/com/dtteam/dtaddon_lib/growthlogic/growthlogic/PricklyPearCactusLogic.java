@@ -6,11 +6,11 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulation
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionSelectionContext;
 import com.dtteam.dynamictrees.utility.MathUtils;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 public class PricklyPearCactusLogic extends GrowthLogicKit {
 
-    public PricklyPearCactusLogic(ResourceLocation registryName) {
+    public PricklyPearCactusLogic(Identifier registryName) {
         super(registryName);
     }
 

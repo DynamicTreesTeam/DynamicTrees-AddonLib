@@ -61,7 +61,7 @@ public class MapleSpileBucketBlock extends MapleSpileCommon {
                 return InteractionResult.SUCCESS;
             }
         }
-        if (giveSyrup(level, pos, state, player, pos.offset(dir.getOpposite().getNormal()))) {
+        if (giveSyrup(level, pos, state, player, pos.offset(dir.getOpposite().getUnitVec3i()))) {
             return InteractionResult.SUCCESS;
         }
         return super.useWithoutItem(state, level, pos, player, hitResult);
@@ -78,7 +78,7 @@ public class MapleSpileBucketBlock extends MapleSpileCommon {
                 ItemStack drop = new ItemStack(getSyrupItem(species), count);
                 world.addFreshEntity(new ItemEntity(world, pos.getX()+0.5f, pos.getY()+0.1f, pos.getZ()+0.5f, drop));
             }
-            world.playSound(null, pos, SoundEvents.HONEY_DRINK, SoundSource.BLOCKS, 1, 2 - filling / 3f);
+            world.playSound(null, pos, SoundEvents.HONEY_DRINK.value(), SoundSource.BLOCKS, 1, 2 - filling / 3f);
             if (filling == maxFilling) world.playSound(null, pos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 0.5f, 0.8f);
             world.setBlock(pos, state.setValue(FILLING, 0), 3);
             return true;
@@ -97,8 +97,8 @@ public class MapleSpileBucketBlock extends MapleSpileCommon {
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pPos) {
-        return pBlockState.getValue(FILLING);
+    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
+        return state.getValue(FILLING);
     }
 
 }

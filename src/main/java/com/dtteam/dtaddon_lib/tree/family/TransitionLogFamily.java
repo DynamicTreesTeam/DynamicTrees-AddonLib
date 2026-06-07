@@ -5,7 +5,7 @@ import com.dtteam.dynamictrees.block.branch.BasicBranchBlock;
 import com.dtteam.dynamictrees.block.branch.BranchBlock;
 import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dtaddon_lib.blocks.branch.TransitionLogBranchBlock;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTRU
 public class TransitionLogFamily extends Family {
@@ -13,7 +13,7 @@ public class TransitionLogFamily extends Family {
     public static final TypedRegistry.EntryType<Family> TYPE_STRIPPED = TypedRegistry.newType(res -> new TransitionLogFamily(res, true, false));
     public static final TypedRegistry.EntryType<Family> TYPE_BASE = TypedRegistry.newType(res -> new TransitionLogFamily(res, false, true));
 
-    public TransitionLogFamily(ResourceLocation name, boolean stripped, boolean base) {
+    public TransitionLogFamily(Identifier name, boolean stripped, boolean base) {
         super(name);
         transitionOnStripped = stripped;
         transitionOnBase = base;
@@ -23,7 +23,7 @@ public class TransitionLogFamily extends Family {
     boolean transitionOnBase;
 
     @Override
-    protected BranchBlock createBranchBlock(ResourceLocation name) {
+    protected BranchBlock createBranchBlock(Identifier name) {
         final BasicBranchBlock branch = new TransitionLogBranchBlock(name, this.getProperties(), transitionOnStripped, transitionOnBase);
         if (this.isFireProof()) branch.setFireSpreadSpeed(0).setFlammability(0);
         return branch;

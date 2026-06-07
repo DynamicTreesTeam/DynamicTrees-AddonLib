@@ -7,7 +7,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.MangroveRootsLogic;
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.BlockState;
 
 // From DTAether
@@ -15,7 +15,7 @@ public class YagrootRootsLogic extends MangroveRootsLogic {
 
     public static final ConfigurationProperty<Integer> HORIZONTAL_PROBABILITY = ConfigurationProperty.integer("horizontal_probability");
 
-    public YagrootRootsLogic(ResourceLocation registryName) {
+    public YagrootRootsLogic(Identifier registryName) {
         super(registryName);
     }
 
@@ -37,7 +37,7 @@ public class YagrootRootsLogic extends MangroveRootsLogic {
         final Direction originDir = context.signal().dir.getOpposite();
         final Direction defaultDir = context.signal().defaultDir; //usually UP
 
-        BlockPos downPos = context.pos().offset(defaultDir.getNormal());
+        BlockPos downPos = context.pos().offset(defaultDir.getUnitVec3i());
         boolean isOverGround = context.level().getBlockState(downPos).isFaceSturdy(context.level(), downPos, defaultDir.getOpposite());
 
         for (Direction dir : Direction.values()) {

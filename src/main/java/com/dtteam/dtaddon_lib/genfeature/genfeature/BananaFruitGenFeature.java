@@ -8,7 +8,7 @@ import com.dtteam.dynamictrees.systems.season.SeasonHelper;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 
 // From DTPHC2
@@ -17,7 +17,7 @@ public class BananaFruitGenFeature extends PalmFruitGenFeature {
     public static final ConfigurationProperty<Fruit> FRUIT =
             ConfigurationProperty.property("fruit", Fruit.class);
 
-    public BananaFruitGenFeature(ResourceLocation registryName) {
+    public BananaFruitGenFeature(Identifier registryName) {
         super(registryName);
     }
 
@@ -42,7 +42,7 @@ public class BananaFruitGenFeature extends PalmFruitGenFeature {
         if (rootPos.getY() == leavesPos.getY()) return;
         LevelAccessor acc = world.accessor();
         Direction placeDir = CoordUtils.HORIZONTALS[acc.getRandom().nextInt(4)];
-        BlockPos pos = expandRandom(configuration, acc, leavesPos.offset(placeDir.getNormal()));
+        BlockPos pos = expandRandom(configuration, acc, leavesPos.offset(placeDir.getUnitVec3i()));
         if (acc.getBlockState(pos).canBeReplaced()) {
             Float seasonValue = SeasonHelper.getSeasonValue(world, rootPos);
             Fruit fruit = configuration.get(FRUIT);

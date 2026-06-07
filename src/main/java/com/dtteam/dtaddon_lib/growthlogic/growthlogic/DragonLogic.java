@@ -10,7 +10,7 @@ import com.dtteam.dynamictrees.systems.GrowSignal;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.Level;
@@ -30,7 +30,7 @@ public class DragonLogic extends GrowthLogicKit {
 
     public static final ConfigurationProperty<Integer> TURNING_LENGTH = ConfigurationProperty.integer("turning_length");
 
-    public DragonLogic(ResourceLocation registryName) {
+    public DragonLogic(Identifier registryName) {
         super(registryName);
     }
 

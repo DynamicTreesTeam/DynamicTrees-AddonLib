@@ -8,7 +8,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.PositionalSpeciesCont
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 
 // From DTGardensOfTheDead
@@ -17,7 +17,7 @@ public class SoulblightLogic extends GrowthLogicKit {
     private static final int MIN_CAP_HEIGHT = 5; // max height is 3 with 5 idk why
     private static final int HEIGHT_VARIATION = 3;
 
-    public SoulblightLogic(final ResourceLocation registryName) {
+    public SoulblightLogic(final Identifier registryName) {
         super(registryName);
     }
 

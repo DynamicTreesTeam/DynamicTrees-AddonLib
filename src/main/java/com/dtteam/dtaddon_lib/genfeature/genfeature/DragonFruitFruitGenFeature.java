@@ -6,13 +6,13 @@ import com.dtteam.dynamictrees.systems.genfeature.GenFeatureConfiguration;
 import com.dtteam.dynamictrees.systems.season.SeasonHelper;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 
 // From DTPHC2
 public class DragonFruitFruitGenFeature extends BananaFruitGenFeature {
 
-    public DragonFruitFruitGenFeature(ResourceLocation registryName) {
+    public DragonFruitFruitGenFeature(Identifier registryName) {
         super(registryName);
     }
 

@@ -6,14 +6,14 @@ import com.dtteam.dynamictrees.systems.growthlogic.GrowthLogicKitConfiguration;
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulationContext;
 
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class WillowLogic extends VariateHeightLogic {
 
     public static final ConfigurationProperty<Integer> CANOPY_DEPTH = ConfigurationProperty.integer("canopy_depth");
 
-    public WillowLogic(ResourceLocation registryName) { super(registryName); }
+    public WillowLogic(Identifier registryName) { super(registryName); }
 
     @Override
     protected GrowthLogicKitConfiguration createDefaultConfiguration() {

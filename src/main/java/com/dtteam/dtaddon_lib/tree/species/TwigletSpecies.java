@@ -5,14 +5,14 @@ import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
 import com.dtteam.dynamictrees.systems.nodemapper.NetVolumeNode;
 import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.species.Species;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBOP
 public class TwigletSpecies extends Species {
 
     public static final TypedRegistry.EntryType<Species> TYPE = createDefaultType(TwigletSpecies::new);
 
-    public TwigletSpecies(ResourceLocation name, Family family, LeavesProperties leavesProperties) {
+    public TwigletSpecies(Identifier name, Family family, LeavesProperties leavesProperties) {
         super(name, family, leavesProperties);
         setBasicGrowingParameters(0.3f, 2.5f, 1, 2, 1.0f);
     }

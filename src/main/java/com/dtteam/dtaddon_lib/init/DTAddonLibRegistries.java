@@ -32,7 +32,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Supplier;
 
-@EventBusSubscriber(bus=EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public class DTAddonLibRegistries {
 
     public static final TagKey<Block> CAN_BE_SPILED = BlockTags.create(DynamicTreesAddonLib.location("can_be_spiled"));
@@ -109,7 +109,6 @@ public class DTAddonLibRegistries {
     @SubscribeEvent
     public static void registerFamilyTypes (final TypeRegistryEvent<Family> event) {
         if (event.isEntryOfType(Family.class)) {
-            event.registerType(DynamicTreesAddonLib.location("alt_log"), AltLogFamily.TYPE);
             event.registerType(DynamicTreesAddonLib.location("diagonal_palm"), DiagonalPalmFamily.TYPE);
             event.registerType(DynamicTreesAddonLib.location("stripped_transition_log"), TransitionLogFamily.TYPE_STRIPPED);
             event.registerType(DynamicTreesAddonLib.location("base_transition_log"), TransitionLogFamily.TYPE_BASE);

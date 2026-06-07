@@ -6,7 +6,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.GrowthLogicKitConfiguration;
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulationContext;
 import com.dtteam.dynamictrees.systems.growthlogic.context.PositionalSpeciesContext;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class EnchantedTreeLogic extends TwistingTreeLogic {
@@ -14,7 +14,7 @@ public class EnchantedTreeLogic extends TwistingTreeLogic {
     public static final ConfigurationProperty<Integer> FORCE_BRANCHING_AT_STEP = ConfigurationProperty.integer("force_branching_at_step");
     public static final ConfigurationProperty<Integer> FORCE_BRANCHING_AT_STEP_VARIATION = ConfigurationProperty.integer("force_branching_at_step_variation");
 
-    public EnchantedTreeLogic(ResourceLocation registryName) {
+    public EnchantedTreeLogic(Identifier registryName) {
         super(registryName);
     }
 

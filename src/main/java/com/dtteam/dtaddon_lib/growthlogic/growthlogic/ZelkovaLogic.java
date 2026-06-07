@@ -7,12 +7,12 @@ import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class ZelkovaLogic extends ConiferLogic {
 
-    public ZelkovaLogic(ResourceLocation registryName) { super(registryName); }
+    public ZelkovaLogic(Identifier registryName) { super(registryName); }
 
     @Override
     protected GrowthLogicKitConfiguration createDefaultConfiguration() {

@@ -11,7 +11,7 @@ import com.dtteam.dynamictrees.systems.genfeature.context.PostGrowContext;
 import com.dtteam.dynamictrees.systems.nodemapper.FindEndsNode;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -28,10 +28,12 @@ public class FallenLeavesGenFeature extends GenFeature {
     public static final ConfigurationProperty<String> CARPET = ConfigurationProperty.property("carpet", String.class);
 
     public BlockState getBasicLeafBlock(GenFeatureConfiguration configuration) {
-       return BuiltInRegistries.BLOCK.get(ResourceLocation.parse(configuration.get(CARPET))).defaultBlockState();
+        return BuiltInRegistries.BLOCK.get(Identifier.parse(configuration.get(CARPET)))
+                .map(holder -> holder.value().defaultBlockState())
+                .orElse(Blocks.AIR.defaultBlockState());
     }
 
-    public FallenLeavesGenFeature(ResourceLocation registryName) {
+    public FallenLeavesGenFeature(Identifier registryName) {
         super(registryName);
     }
 

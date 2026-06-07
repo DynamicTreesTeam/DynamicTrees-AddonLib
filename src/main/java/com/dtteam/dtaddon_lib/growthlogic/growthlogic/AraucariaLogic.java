@@ -8,7 +8,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.PositionalSpeciesCont
 import com.dtteam.dynamictrees.systems.GrowSignal;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class AraucariaLogic extends VariateHeightLogic {
@@ -16,7 +16,7 @@ public class AraucariaLogic extends VariateHeightLogic {
     public static final ConfigurationProperty<Float> CANOPY_HEIGHT_FACTOR = ConfigurationProperty.floatProperty("canopy_height_factor");
     public static final ConfigurationProperty<Float> SPLIT_HEIGHT_FACTOR = ConfigurationProperty.floatProperty("split_height_factor");
 
-    public AraucariaLogic(ResourceLocation registryName) {
+    public AraucariaLogic(Identifier registryName) {
         super(registryName);
     }
 

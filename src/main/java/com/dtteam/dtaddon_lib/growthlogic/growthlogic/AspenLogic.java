@@ -6,12 +6,12 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulation
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionSelectionContext;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class AspenLogic extends VariateHeightLogic {
 
-    public AspenLogic(ResourceLocation registryName) {
+    public AspenLogic(Identifier registryName) {
         super(registryName);
     }
 

@@ -8,7 +8,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulation
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionSelectionContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.state.BlockState;
 
 // From DTAether
@@ -16,7 +16,7 @@ public class BlightwillowLogic extends GrowthLogicKit {
 
     public static final ConfigurationProperty<Float> HORIZONTAL_SPREAD = ConfigurationProperty.floatProperty("horizontal_spread");
 
-    public BlightwillowLogic(ResourceLocation registryName) {
+    public BlightwillowLogic(Identifier registryName) {
         super(registryName);
     }
 
@@ -58,7 +58,7 @@ public class BlightwillowLogic extends GrowthLogicKit {
 
             for (Direction dir : Direction.values()) {
                 if (dir.getAxis() != Direction.Axis.Y){
-                    float dot = context.signal().delta.getX() * dir.getNormal().getX() + context.signal().delta.getZ() * dir.getNormal().getZ();
+                    float dot = context.signal().delta.getX() * dir.getUnitVec3i().getX() + context.signal().delta.getZ() * dir.getUnitVec3i().getZ();
                     probMap[dir.ordinal()] = dot < 0 ? 0 : (int)sideChance;
                 }
                 if (!dir.equals(fromDir) && probMap[dir.ordinal()] != 0) {

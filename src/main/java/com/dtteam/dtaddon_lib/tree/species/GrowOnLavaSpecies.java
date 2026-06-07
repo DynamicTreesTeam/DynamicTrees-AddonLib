@@ -9,7 +9,7 @@ import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.species.Species;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -31,7 +31,7 @@ public class GrowOnLavaSpecies extends Species {
 
     public static final TypedRegistry.EntryType<Species> TYPE = createDefaultType(GrowOnLavaSpecies::new);
 
-    public GrowOnLavaSpecies(ResourceLocation name, Family family, LeavesProperties leavesProperties) {
+    public GrowOnLavaSpecies(Identifier name, Family family, LeavesProperties leavesProperties) {
         super(name, family, leavesProperties);
     }
 

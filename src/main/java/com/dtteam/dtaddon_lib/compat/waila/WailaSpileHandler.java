@@ -10,7 +10,7 @@ import com.dtteam.dtaddon_lib.blocks.MapleSpileCommon;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,7 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class WailaSpileHandler implements IBlockComponentProvider {
-    public static final ResourceLocation ID = DynamicTreesAddonLib.location("spile");
+    public static final Identifier ID = DynamicTreesAddonLib.location("spile");
     public static WailaSpileHandler INSTANCE = new WailaSpileHandler();
 
     private BlockPos lastPos = BlockPos.ZERO;
@@ -97,7 +97,7 @@ public class WailaSpileHandler implements IBlockComponentProvider {
     }
 
     @Override
-    public ResourceLocation getUid() {
+    public Identifier getUid() {
         return ID;
     }
 }

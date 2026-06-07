@@ -8,7 +8,7 @@ import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 
@@ -26,7 +26,7 @@ import java.util.Random;
 public class LargeCrownLogic extends PalmGrowthLogic {
 
 
-    public LargeCrownLogic(ResourceLocation registryName) {
+    public LargeCrownLogic(Identifier registryName) {
         super(registryName);
     }
 

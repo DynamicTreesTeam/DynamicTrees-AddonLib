@@ -10,13 +10,13 @@ import com.dtteam.dynamictrees.utility.CoordUtils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 
 // From DTBWG
 public class TaperedWitheredOakLogic extends ConiferLogic {
 
-    public TaperedWitheredOakLogic(ResourceLocation registryName) { super(registryName); }
+    public TaperedWitheredOakLogic(Identifier registryName) { super(registryName); }
 
     @Override
     protected GrowthLogicKitConfiguration createDefaultConfiguration() {

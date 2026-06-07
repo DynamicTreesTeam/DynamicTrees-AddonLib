@@ -7,11 +7,11 @@ import com.dtteam.dynamictrees.systems.growthlogic.GrowthLogicKitConfiguration;
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulationContext;
 
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class MegaRainbowEucalyptusLogic extends GrowthLogicKit {
-    public MegaRainbowEucalyptusLogic(ResourceLocation registryName) {
+    public MegaRainbowEucalyptusLogic(Identifier registryName) {
         super(registryName);
     }
 

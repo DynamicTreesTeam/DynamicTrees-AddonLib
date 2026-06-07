@@ -6,8 +6,10 @@ import com.dtteam.dynamictrees.tree.TreeHelper;
 import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dtaddon_lib.genfeature.DTAddonLibGenFeatures;
 import com.dtteam.dtaddon_lib.genfeature.genfeature.SyrupGenFeature;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -76,7 +78,7 @@ public abstract class MapleSpileCommon extends HorizontalDirectionalBlock {
     public int colorMultiplier(BlockState state, BlockAndTintGetter level, BlockPos pos, int tintIndex) {
         if (tintIndex != 0)  return 1;
         Species species = null;
-        BlockPos treePos = pos.offset(state.getValue(FACING).getOpposite().getNormal());
+        BlockPos treePos = pos.offset(state.getValue(FACING).getOpposite().getUnitVec3i());
         BlockState treeState = level.getBlockState(treePos);
         if (treeState.getBlock() instanceof BranchBlock branch) {
             species = branch.getFamily().getCommonSpecies();
@@ -108,8 +110,8 @@ public abstract class MapleSpileCommon extends HorizontalDirectionalBlock {
 
     @Override
     @Nonnull
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        return pFacing == pState.getValue(FACING).getOpposite() && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+    protected BlockState updateShape(BlockState pState, LevelReader pLevel, ScheduledTickAccess pTicks, BlockPos pCurrentPos, Direction pDirection, BlockPos pNeighborPos, BlockState pNeighborState, RandomSource pRandom) {
+        return pDirection == pState.getValue(FACING).getOpposite() && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pLevel, pTicks, pCurrentPos, pDirection, pNeighborPos, pNeighborState, pRandom);
     }
 
     @Nonnull

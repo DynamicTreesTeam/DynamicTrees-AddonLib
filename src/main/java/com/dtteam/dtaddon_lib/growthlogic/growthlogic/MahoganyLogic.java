@@ -6,12 +6,12 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulation
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionSelectionContext;
 import com.dtteam.dynamictrees.systems.GrowSignal;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBOP
 public class MahoganyLogic extends GrowthLogicKit {
 
-    public MahoganyLogic(ResourceLocation registryName) { super(registryName); }
+    public MahoganyLogic(Identifier registryName) { super(registryName); }
 
     @Override
     public int[] populateDirectionProbabilityMap(GrowthLogicKitConfiguration configuration,

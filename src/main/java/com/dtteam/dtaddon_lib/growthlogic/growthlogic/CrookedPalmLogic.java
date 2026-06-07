@@ -9,7 +9,7 @@ import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 
 import java.util.Random;
@@ -27,7 +27,7 @@ public class CrookedPalmLogic extends PalmGrowthLogic {
     public static final ConfigurationProperty<Float> CHANCE_TO_SPLIT = ConfigurationProperty.floatProperty("chance_to_split");
     public static final ConfigurationProperty<Integer> TURNING_HEIGHT = ConfigurationProperty.integer("turning_height");
 
-    public CrookedPalmLogic(ResourceLocation registryName) {
+    public CrookedPalmLogic(Identifier registryName) {
         super(registryName);
     }
 

@@ -2,6 +2,7 @@ package com.dtteam.dtaddon_lib.blocks;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -24,7 +25,7 @@ public interface SimpleLavaloggedBlock extends BucketPickup, LiquidBlockContaine
     BooleanProperty LAVALOGGED = BooleanProperty.create("lavalogged");
 
     @Override
-    default boolean canPlaceLiquid(@Nullable Player player, BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
+    default boolean canPlaceLiquid(@Nullable LivingEntity player, BlockGetter level, BlockPos pos, BlockState state, Fluid fluid) {
         return !state.getValue(LAVALOGGED) && fluid == Fluids.LAVA;
     }
 
@@ -42,7 +43,7 @@ public interface SimpleLavaloggedBlock extends BucketPickup, LiquidBlockContaine
     }
 
     @Override
-    default ItemStack pickupBlock(@Nullable Player player, LevelAccessor level, BlockPos pos, BlockState state) {
+    default ItemStack pickupBlock(@Nullable LivingEntity player, LevelAccessor level, BlockPos pos, BlockState state) {
         if (state.getValue(LAVALOGGED)) {
             level.setBlock(pos, state.setValue(LAVALOGGED, false), 3);
             if (!state.canSurvive(level, pos)) {

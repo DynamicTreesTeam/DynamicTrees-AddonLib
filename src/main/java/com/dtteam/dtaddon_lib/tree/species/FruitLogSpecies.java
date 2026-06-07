@@ -5,7 +5,7 @@ import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
 import com.dtteam.dynamictrees.systems.nodemapper.NetVolumeNode;
 import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.species.Species;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -25,7 +25,7 @@ public class FruitLogSpecies extends Species {
     private float fake_log_multiplier = 1;
     private Item fakeLog = Items.AIR;
 
-    public FruitLogSpecies(ResourceLocation name, Family family, LeavesProperties leavesProperties) {
+    public FruitLogSpecies(Identifier name, Family family, LeavesProperties leavesProperties) {
         super(name, family, leavesProperties);
     }
 

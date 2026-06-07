@@ -9,12 +9,12 @@ import com.dtteam.dynamictrees.utility.CoordUtils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class MegaPineLogic extends ConiferLogic {
 
-    public MegaPineLogic(ResourceLocation registryName) {
+    public MegaPineLogic(Identifier registryName) {
         super(registryName);
     }
 

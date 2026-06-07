@@ -13,7 +13,6 @@ public class DTAddonLibGenFeatures {
     public static final GenFeature EXTRA_BOTTOM_FLARE = new ExtraBottomFlareGenFeature(DynamicTreesAddonLib.location("extra_bottom_flare"));
     public static final GenFeature BIOME_PREDICATE_2 = new BiomePredicateGenFeature(DynamicTreesAddonLib.location("biome_predicate"));
     public static final GenFeature TOP_LEAVES = new TopLeavesGenFeature(DynamicTreesAddonLib.location("top_leaves"));
-    public static final GenFeature ALTERNATIVE_BRANCH = new AlternativeBranchGenFeature(DynamicTreesAddonLib.location("alt_branch"));
     public static final GenFeature LUSH_VINES = new LushVinesGenFeature(DynamicTreesAddonLib.location("lush_vines"));
     public static final GenFeature ALT_LEAVES_HEIGHT_LIMIT = new AlternativeLeavesWithHeightLimitGenFeature(DynamicTreesAddonLib.location("alt_leaves_with_heigth_limit"));
     public static final GenFeature ABOVE_LEAVES_BLOCK = new AboveLeavesBlockGenFeature(DynamicTreesAddonLib.location("above_leaves_block"));
@@ -33,10 +32,10 @@ public class DTAddonLibGenFeatures {
     public static final GenFeature SYRUP_GEN = new SyrupGenFeature(DynamicTreesAddonLib.location("syrup"));
 
     public static void register(final Registry<GenFeature> registry) {
-        registry.registerAll(BIG_BOTTOM_FLARE, EXTRA_BOTTOM_FLARE, BIOME_PREDICATE_2, TOP_LEAVES, SYRUP_GEN,
-                ALTERNATIVE_BRANCH, LUSH_VINES, ALT_LEAVES_HEIGHT_LIMIT, ABOVE_LEAVES_BLOCK, TRUNK_BRANCHES,
-                FALLEN_LEAVES, HANGER_VINES, SPORES, VINES_ON_TRUNK, PLANT_SUCKERS, CHANGE_GRASS, SHROOMLIGHT,
-                BANANA_FRUIT, DRAGON_FRUIT_FRUIT, PALM_FRUIT, RANDOM_STRIPPED_BRANCHES, TRUNK_BLOCK);
+        registry.registerAll(BIG_BOTTOM_FLARE, EXTRA_BOTTOM_FLARE, BIOME_PREDICATE_2, TOP_LEAVES, SYRUP_GEN, LUSH_VINES,
+                ALT_LEAVES_HEIGHT_LIMIT, ABOVE_LEAVES_BLOCK, TRUNK_BRANCHES, FALLEN_LEAVES, HANGER_VINES, SPORES,
+                VINES_ON_TRUNK, PLANT_SUCKERS, CHANGE_GRASS, SHROOMLIGHT, BANANA_FRUIT, DRAGON_FRUIT_FRUIT, PALM_FRUIT,
+                RANDOM_STRIPPED_BRANCHES, TRUNK_BLOCK);
     }
 
 }

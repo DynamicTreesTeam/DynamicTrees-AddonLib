@@ -3,6 +3,7 @@ package com.dtteam.dtaddon_lib.blocks.fruit;
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;
 import com.google.common.collect.Lists;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -41,7 +43,7 @@ public interface IFallingFruit {
         if (!world.hasNearbyAlivePlayer(pos.getX(), rootY, pos.getZ(), getPlayerDistanceToFall())){
             return false;
         }
-        if (pos.getY() >= world.getMinBuildHeight() && FallingBlock.isFree(world.getBlockState(pos.below()))) {
+        if (pos.getY() >= world.getMinY() && FallingBlock.isFree(world.getBlockState(pos.below()))) {
             if (world.isLoaded(pos)) {
                 if (!world.isClientSide()) {
                     FallingBlockEntity fallingBlockEntity = getFallingEntity(world, pos, state);
@@ -58,7 +60,7 @@ public interface IFallingFruit {
         return new FallingBlockEntity(world, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, state){
 
             @Override
-            public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
+            public boolean causeFallDamage(double pFallDistance, float pMultiplier, DamageSource pSource) {
                 int i = (int)Math.ceil(pFallDistance - 1.0F);
                 if (i > 0) {
                     List<Entity> list = Lists.newArrayList(level().getEntities(this, this.getBoundingBox()));
@@ -77,8 +79,8 @@ public interface IFallingFruit {
 
             @Nullable
             @Override
-            public ItemEntity spawnAtLocation(@Nonnull ItemStack pStack, float pOffsetY) {
-                return super.spawnAtLocation(getDropOnFallItems( this), pOffsetY);
+            public ItemEntity spawnAtLocation(ServerLevel pLevel, @Nonnull ItemStack pStack, float pOffsetY) {
+                return super.spawnAtLocation(pLevel, getDropOnFallItems( this), pOffsetY);
             }
         };
     }

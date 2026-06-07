@@ -11,15 +11,13 @@ import com.dtteam.dynamictrees.platform.services.IConfigHelper;
 import com.dtteam.dynamictrees.tree.TreeHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -40,15 +38,13 @@ public class LavaSoilProperties extends SoilProperties {
 
     public static final TypedRegistry.EntryType<SoilProperties> TYPE = TypedRegistry.newType(LavaSoilProperties::new);
 
-    public LavaSoilProperties(ResourceLocation registryName) {
+    public LavaSoilProperties(Identifier registryName) {
         super(null, registryName);
-
-        this.soilStateGenerator.reset(WaterRootSoilGenerator::new);
     }
 
     @Override
     protected SoilBlock createBlock(Block.Properties blockProperties) {
-        return new RootyLavaBlock(this, blockProperties);
+        return new RootyLavaBlock(this.getRegistryName(), this, blockProperties);
     }
 
     @Override
@@ -60,8 +56,8 @@ public class LavaSoilProperties extends SoilProperties {
 
         protected static final AABB LAVA_ROOTS_AABB = new AABB(0.1, 0.0, 0.1, 0.9, 1.0, 0.9);
 
-        public RootyLavaBlock(SoilProperties properties, Properties blockProperties) {
-            super(properties, blockProperties);
+        public RootyLavaBlock(Identifier id, SoilProperties properties, Properties blockProperties) {
+            super(id, properties, blockProperties);
             registerDefaultState(defaultBlockState().setValue(SimpleLavaloggedBlock.LAVALOGGED, true));
         }
 
@@ -76,7 +72,7 @@ public class LavaSoilProperties extends SoilProperties {
         }
 
         @Override
-        public ItemStack getCloneItemStack(BlockState state, HitResult target, LevelReader level, BlockPos pos, Player player) {
+        protected ItemStack getCloneItemStack(LevelReader level, BlockPos pos, BlockState state, boolean includeData) {
             BlockState upState = level.getBlockState(pos.above());
             BranchBlock branch = TreeHelper.getBranch(upState);
             if (branch == null) return ItemStack.EMPTY;
@@ -110,11 +106,11 @@ public class LavaSoilProperties extends SoilProperties {
 
         @NotNull
         @Override
-        public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+        protected BlockState updateShape(BlockState pState, LevelReader pLevel, ScheduledTickAccess pTicks, BlockPos pCurrentPos, Direction pDirection, BlockPos pNeighborPos, BlockState pNeighborState, RandomSource pRandom) {
             if (pState.getValue(LAVALOGGED)) {
-                pLevel.scheduleTick(pCurrentPos, Fluids.LAVA, Fluids.LAVA.getTickDelay(pLevel));
+                pTicks.scheduleTick(pCurrentPos, Fluids.LAVA, Fluids.LAVA.getTickDelay(pLevel));
             }
-            return super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+            return super.updateShape(pState, pLevel, pTicks, pCurrentPos, pDirection, pNeighborPos, pNeighborState, pRandom);
         }
 
         @Override

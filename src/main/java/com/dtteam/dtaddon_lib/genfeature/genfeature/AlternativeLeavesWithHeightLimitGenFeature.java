@@ -5,14 +5,14 @@ import com.dtteam.dynamictrees.systems.genfeature.AlternativeLeavesGenFeature;
 import com.dtteam.dynamictrees.systems.genfeature.GenFeatureConfiguration;
 import com.dtteam.dynamictrees.systems.genfeature.context.PostGenerationContext;
 import com.dtteam.dynamictrees.systems.genfeature.context.PostGrowContext;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class AlternativeLeavesWithHeightLimitGenFeature extends AlternativeLeavesGenFeature {
 
     public static final ConfigurationProperty<Integer> MIN_HEIGHT = ConfigurationProperty.integer("min_height");
 
-    public AlternativeLeavesWithHeightLimitGenFeature(ResourceLocation registryName) {
+    public AlternativeLeavesWithHeightLimitGenFeature(Identifier registryName) {
         super(registryName);
     }
 

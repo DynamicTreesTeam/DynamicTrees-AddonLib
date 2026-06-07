@@ -9,13 +9,13 @@ import com.dtteam.dynamictrees.systems.GrowSignal;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 
 // From DTTwilightForest
 public class MiningTreeLogic extends GrowthLogicKit {
 
-    public MiningTreeLogic(ResourceLocation registryName) {
+    public MiningTreeLogic(Identifier registryName) {
         super(registryName);
     }
 
@@ -57,7 +57,7 @@ public class MiningTreeLogic extends GrowthLogicKit {
         if (pos.getY() >= signal.rootPos.getY() + lowestBranch  || !signal.isInTrunk()){
             probMap[Direction.UP.ordinal()] = 0;
             for (Direction dir: Direction.Plane.HORIZONTAL){
-                if (TreeHelper.isBranch(level.getBlockState(pos.offset(dir.getNormal())))){
+                if (TreeHelper.isBranch(level.getBlockState(pos.offset(dir.getUnitVec3i())))){
                     probMap[dir.getClockWise(Direction.Axis.Y).ordinal()] = probMap[dir.getCounterClockWise(Direction.Axis.Y).ordinal()] = 0;
                 }
             }
@@ -69,11 +69,11 @@ public class MiningTreeLogic extends GrowthLogicKit {
             }
             Direction[] sides = {relativePosToRoot.getClockWise(Direction.Axis.Y), relativePosToRoot.getCounterClockWise(Direction.Axis.Y), Direction.UP};
             for (Direction dirSides: sides){
-                if (level.isEmptyBlock(pos.offset(dirSides.getNormal())) && TreeHelper.getRadius(level, pos) > 1){
+                if (level.isEmptyBlock(pos.offset(dirSides.getUnitVec3i())) && TreeHelper.getRadius(level, pos) > 1){
                     probMap[dirSides.ordinal()] = 1;
                 }
             }
-            boolean isBranchSide = TreeHelper.isBranch(level.getBlockState(pos.offset(relativePosToRoot.getNormal())));
+            boolean isBranchSide = TreeHelper.isBranch(level.getBlockState(pos.offset(relativePosToRoot.getUnitVec3i())));
             boolean isBranchDown = TreeHelper.isBranch(level.getBlockState(pos.below()));
             probMap[Direction.DOWN.ordinal()] = isBranchSide && !isBranchDown? 0:1;
             probMap[relativePosToRoot.ordinal()] = isBranchDown && !isBranchSide? 0:1;

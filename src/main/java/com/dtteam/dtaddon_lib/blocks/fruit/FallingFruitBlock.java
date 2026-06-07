@@ -5,9 +5,8 @@ import com.dtteam.dynamictrees.block.fruit.FruitBlock;
 import com.dtteam.dynamictrees.block.soil.SoilBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.network.protocol.game.DebugPackets;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,8 +16,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.redstone.Orientation;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class FallingFruitBlock extends FruitBlock implements IFallingFruit {
@@ -28,11 +29,11 @@ public class FallingFruitBlock extends FruitBlock implements IFallingFruit {
     public static float randomFruitFallChance = 0.005f;
     public static float playerDistanceToFall = 10f;
 
-    public FallingFruitBlock(Properties properties, Fruit fruit) {
-        super(properties, fruit);
+    public FallingFruitBlock(Identifier id, Properties properties, Fruit fruit) {
+        super(id, properties, fruit);
         this.damageTypeKey = ResourceKey.create(
                 Registries.DAMAGE_TYPE,
-                ResourceLocation.fromNamespaceAndPath(fruit.getRegistryName().getNamespace(), "falling_fruit/" + fruit.getRegistryName().getPath())
+                Identifier.fromNamespaceAndPath(fruit.getRegistryName().getNamespace(), "falling_fruit/" + fruit.getRegistryName().getPath())
         );
     }
 
@@ -45,19 +46,16 @@ public class FallingFruitBlock extends FruitBlock implements IFallingFruit {
     }
 
     @Override
-    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, BlockPos fromPos, boolean isMoving) {
+    public void neighborChanged(BlockState state, Level world, BlockPos pos, Block block, @Nullable Orientation orientation, boolean isMoving) {
         if (!isSupported(world, pos, state)) {
             if (!doFall(state, world, pos))
-                super.neighborChanged(state, world, pos, block, fromPos, isMoving);
+                super.neighborChanged(state, world, pos, block, orientation, isMoving);
         }
-        DebugPackets.sendNeighborsUpdatePacket(world, pos);
     }
 
     @Override
     public ItemStack getDropOnFallItems(@Nonnull FallingBlockEntity entity) {
-        if (entity.getServer() == null) return ItemStack.EMPTY;
-        ServerLevel world = entity.getServer().getLevel(entity.level().dimension());
-        if (world == null) return ItemStack.EMPTY;
+        if (!(entity.level() instanceof ServerLevel world)) return ItemStack.EMPTY;
         List<ItemStack> items = getDrops(entity.getBlockState(), world, entity.blockPosition(), null);
         return items.isEmpty() ? ItemStack.EMPTY : items.get(0);
     }
@@ -65,8 +63,8 @@ public class FallingFruitBlock extends FruitBlock implements IFallingFruit {
     @Override
     public DamageSource getDamageSource(Level level) {
         return new DamageSource(level.registryAccess()
-                .registryOrThrow(Registries.DAMAGE_TYPE)
-                .getHolderOrThrow(damageTypeKey));
+                .lookupOrThrow(Registries.DAMAGE_TYPE)
+                .getOrThrow(damageTypeKey));
     }
 
     @Override

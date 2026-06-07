@@ -10,7 +10,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.PositionalSpeciesCont
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 
 // From DTBWG
@@ -18,7 +18,7 @@ public class SythianLogic extends GrowthLogicKit {
 
     public static final ConfigurationProperty<Integer> THICKEN_THRESHOLD = ConfigurationProperty.integer("thicken_threshold");
 
-    public SythianLogic(ResourceLocation registryName) {
+    public SythianLogic(Identifier registryName) {
         super(registryName);
     }
 

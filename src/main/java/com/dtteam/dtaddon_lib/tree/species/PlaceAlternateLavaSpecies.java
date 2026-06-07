@@ -6,7 +6,7 @@ import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dynamictrees.worldgen.DynamicTreeGenerationContext;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -29,7 +29,7 @@ public class PlaceAlternateLavaSpecies extends Species {
             this.altSpecies = altSpecies;
     }
 
-    public PlaceAlternateLavaSpecies(ResourceLocation name, Family family, LeavesProperties leavesProperties) {
+    public PlaceAlternateLavaSpecies(Identifier name, Family family, LeavesProperties leavesProperties) {
         super(name, family, leavesProperties);
     }
 

@@ -11,7 +11,7 @@ import com.dtteam.dynamictrees.systems.genfeature.context.PostGrowContext;
 import com.dtteam.dynamictrees.systems.nodemapper.FindEndsNode;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,7 +23,7 @@ public class SporesGenFeature extends GenFeature {
 
     public static final ConfigurationProperty<Block> BLOCK = ConfigurationProperty.block("block");
 
-    public SporesGenFeature(ResourceLocation registryName) {
+    public SporesGenFeature(Identifier registryName) {
         super(registryName);
     }
     @Override

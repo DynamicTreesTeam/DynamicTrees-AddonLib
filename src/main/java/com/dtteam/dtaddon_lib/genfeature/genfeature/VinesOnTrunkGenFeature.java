@@ -7,7 +7,7 @@ import com.dtteam.dynamictrees.systems.genfeature.GenFeatureConfiguration;
 import com.dtteam.dynamictrees.systems.genfeature.context.PostGenerationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -25,7 +25,7 @@ public class VinesOnTrunkGenFeature extends GenFeature {
     public static final ConfigurationProperty<Block> BLOCK = ConfigurationProperty.block("block");
     public static final ConfigurationProperty<Float> PLACE_FRUIT_CHANCE = ConfigurationProperty.floatProperty("place_fruit_chance");
 
-    public VinesOnTrunkGenFeature(ResourceLocation registryName) {
+    public VinesOnTrunkGenFeature(Identifier registryName) {
         super(registryName);
     }
 
@@ -48,7 +48,7 @@ public class VinesOnTrunkGenFeature extends GenFeature {
         boolean placed = false;
         for (Direction dir : Direction.Plane.HORIZONTAL){
             if (context.random().nextFloat() < configuration.get(PLACE_CHANCE)){
-                BlockPos offset = context.pos().offset(dir.getNormal());
+                BlockPos offset = context.pos().offset(dir.getUnitVec3i());
                 placeVines(configuration, context.level(), offset, dir);
                 placed = true;
             }
@@ -70,7 +70,7 @@ public class VinesOnTrunkGenFeature extends GenFeature {
                 state = state.setValue(VineBlock.UP, true);
             if (state.hasProperty(BlockStateProperties.AGE_2) && rand.nextFloat() < configuration.get(PLACE_FRUIT_CHANCE))
                 state = state.setValue(BlockStateProperties.AGE_2, 1 + rand.nextInt(2));
-            if (world.getBlockState(current).canBeReplaced() && TreeHelper.isBranch(world.getBlockState(current.offset(direction.getOpposite().getNormal())))){
+            if (world.getBlockState(current).canBeReplaced() && TreeHelper.isBranch(world.getBlockState(current.offset(direction.getOpposite().getUnitVec3i())))){
                 world.setBlock(current, state, 0);
             }
         }

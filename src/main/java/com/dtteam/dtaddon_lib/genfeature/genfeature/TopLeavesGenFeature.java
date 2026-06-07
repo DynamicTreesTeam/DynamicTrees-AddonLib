@@ -7,7 +7,7 @@ import com.dtteam.dynamictrees.systems.genfeature.GenFeatureConfiguration;
 import com.dtteam.dynamictrees.systems.genfeature.context.PostGenerationContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Vec3i;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -18,7 +18,7 @@ public class TopLeavesGenFeature extends GenFeature {
 
     public static final ConfigurationProperty<LeavesProperties> LEAVES_PROPERTIES = ConfigurationProperty.property("leaves_properties", LeavesProperties.class);
 
-    public TopLeavesGenFeature(ResourceLocation registryName) {
+    public TopLeavesGenFeature(Identifier registryName) {
         super(registryName);
     }
 

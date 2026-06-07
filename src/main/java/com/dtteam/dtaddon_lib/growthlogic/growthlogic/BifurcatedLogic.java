@@ -9,7 +9,7 @@ import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 
@@ -29,7 +29,7 @@ public class BifurcatedLogic extends PalmGrowthLogic {
     public static final ConfigurationProperty<Integer> TURNING_HEIGHT = ConfigurationProperty.integer("turning_height");
     public static final ConfigurationProperty<Integer> TURNING_LENGTH = ConfigurationProperty.integer("turning_length");
 
-    public BifurcatedLogic(ResourceLocation registryName) {
+    public BifurcatedLogic(Identifier registryName) {
         super(registryName);
     }
 

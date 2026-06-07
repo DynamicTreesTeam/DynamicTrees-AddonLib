@@ -3,8 +3,8 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.0.170'
-    id "me.modmuss50.mod-publish-plugin" version "0.8.4"
+    id 'net.neoforged.moddev' version '2.0.141'
+    id "me.modmuss50.mod-publish-plugin" version "1.1.0"
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -29,6 +29,17 @@ repositories {
     maven {
         url 'https://harleyoconnor.com/maven'
     }
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
     flatDir {
         dir("libs")
     }
@@ -38,40 +49,46 @@ base {
     archivesName = mod_id
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
 
-minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
+neoForge {
+    version = project.neo_version
 
-runs {
-
-    configureEach {
-        systemProperty 'forge.logging.markers', 'REGISTRIES'
-
-        systemProperty 'forge.logging.console.level', 'debug'
-
-        modSource project.sourceSets.main
+    accessTransformers {
+        file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
     }
 
-    client {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-    }
+    runs {
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.DEBUG
+        }
 
-    server {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-        argument '--nogui'
-    }
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
 
-    gameTestServer {
-        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
-    }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
 
-    data {
-        arguments.addAll(
-                '--mod', project.mod_id,
-                '--all',
-                '--output', file('src/generated/resources/').getAbsolutePath(),
-                '--existing', file('src/main/resources/').getAbsolutePath(),
-                "--existing-mod", "dynamictrees")
+        gameTestServer {
+            type = "gameTestServer"
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        data {
+            clientData()
+            programArguments.addAll(
+                    '--mod', project.mod_id,
+                    '--all',
+                    '--output', file('src/generated/resources/').getAbsolutePath(),
+                    '--existing', file('src/main/resources/').getAbsolutePath(),
+                    "--existing-mod", "dynamictrees")
+        }
     }
 }
 
@@ -88,16 +105,14 @@ dependencies {
     //DynamicTrees
     //implementation "com.dtteam.dynamictrees:dynamictrees-neoforge-1.21.1:${dt_version}"
     //implementation "com.dtteam.dynamictreesplus:DynamicTreesPlus:${dtplus_version}"
-    implementation "curse.maven:dynamictrees-252818:7513464"
-    implementation "curse.maven:dynamictreesplus-478155:7513822"
+    implementation "curse.maven:dynamictrees-252818:8132718"
+    //implementation "curse.maven:dynamictreesplus-478155:7513822"
 
     //DynmaicTrees Tools/Utilities
-    implementation "curse.maven:jade-324717:6291517"
-    runtimeOnly "curse.maven:jei-238222:5846880"
-    runtimeOnly "curse.maven:cc-tweaked-282001:5714512"
-    runtimeOnly "curse.maven:suggestion-provider-fix-469647:5598604"
-    runtimeOnly "curse.maven:tagtooltips-899941:6418051"
-    runtimeOnly "curse.maven:patchouli-306770:6842247"
+    implementation "curse.maven:jade-324717:7903350"
+    runtimeOnly "curse.maven:jei-238222:7904641"
+    runtimeOnly "maven.modrinth:cc-tweaked:v79rEtLq"
+    runtimeOnly "curse.maven:tagtooltips-899941:7857745"
 
     //Other
     //implementation "curse.maven:template-projectid:fileid"

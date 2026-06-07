@@ -6,12 +6,12 @@ import com.dtteam.dynamictrees.systems.growthlogic.GrowthLogicKitConfiguration;
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulationContext;
 
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class TaperedOakLogic extends ConiferLogic {
 
-    public TaperedOakLogic(ResourceLocation registryName) { super(registryName); }
+    public TaperedOakLogic(Identifier registryName) { super(registryName); }
 
     @Override
     protected GrowthLogicKitConfiguration createDefaultConfiguration() {

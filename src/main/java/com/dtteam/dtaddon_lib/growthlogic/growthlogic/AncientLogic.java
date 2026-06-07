@@ -13,7 +13,7 @@ import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 
 // From DTBWG
@@ -21,7 +21,7 @@ public class AncientLogic extends VariateHeightLogic {
 
     public static final ConfigurationProperty<Float> CANOPY_ENERGY = ConfigurationProperty.floatProperty("canopy_energy");
 
-    public AncientLogic(ResourceLocation registryName) {
+    public AncientLogic(Identifier registryName) {
         super(registryName);
     }
 
@@ -44,7 +44,7 @@ public class AncientLogic extends VariateHeightLogic {
         boolean found = false;
         for (Direction dir : Direction.values()){
             if (dir != signal.dir.getOpposite() && (allowUp || dir != Direction.UP)){
-                if (TreeHelper.isBranch(world.getBlockState(pos.offset(dir.getNormal())))){
+                if (TreeHelper.isBranch(world.getBlockState(pos.offset(dir.getUnitVec3i())))){
                     probMap[dir.ordinal()] = 1;
                     found = true;
                 }

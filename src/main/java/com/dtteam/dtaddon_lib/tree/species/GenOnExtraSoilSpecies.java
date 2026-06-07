@@ -6,7 +6,7 @@ import com.dtteam.dynamictrees.block.soil.SoilHelper;
 import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.species.Species;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -20,7 +20,7 @@ public class GenOnExtraSoilSpecies extends Species {
     private Block extraSoil = Blocks.STONE;
     private Block soilReplacement = Blocks.GRAVEL;
 
-    public GenOnExtraSoilSpecies(ResourceLocation name, Family family, LeavesProperties leavesProperties) {
+    public GenOnExtraSoilSpecies(Identifier name, Family family, LeavesProperties leavesProperties) {
         super(name, family, leavesProperties);
     }
 

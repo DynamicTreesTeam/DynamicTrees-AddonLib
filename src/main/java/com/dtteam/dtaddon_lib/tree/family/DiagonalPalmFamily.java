@@ -10,7 +10,7 @@ import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dynamictrees.tree.family.PalmFamily;
 import com.dtteam.dynamictrees.tree.species.Species;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
@@ -19,12 +19,12 @@ public class DiagonalPalmFamily extends PalmFamily {
 
     public static final TypedRegistry.EntryType<Family> TYPE = TypedRegistry.newType(DiagonalPalmFamily::new);
 
-    public DiagonalPalmFamily(ResourceLocation name) {
+    public DiagonalPalmFamily(Identifier name) {
         super(name);
     }
 
     @Override
-    protected BranchBlock createBranchBlock(ResourceLocation name) {
+    protected BranchBlock createBranchBlock(Identifier name) {
         final BasicBranchBlock branch = isThick() ? new ThickBranchBlock(name, this.getProperties()){
             @Override
             public @NotNull GrowSignal growIntoAir(Level world, BlockPos pos, GrowSignal signal, int fromRadius) {

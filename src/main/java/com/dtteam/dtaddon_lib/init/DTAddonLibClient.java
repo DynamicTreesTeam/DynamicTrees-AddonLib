@@ -9,12 +9,12 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
-@EventBusSubscriber(modid = DynamicTreesAddonLib.MOD_ID, value = {Dist.CLIENT}, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = DynamicTreesAddonLib.MOD_ID, value = {Dist.CLIENT})
 public class DTAddonLibClient {
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
-    public static void registerBlockColorHandlersEvent(RegisterColorHandlersEvent.Block event) {
+    public static void registerBlockColorHandlersEvent(RegisterColorHandlersEvent.BlockTintSources event) {
 
         Block[] spiles = new Block[]{DTAddonLibBlocks.MAPLE_SPILE_BLOCK.get(), DTAddonLibBlocks.MAPLE_SPILE_BUCKET_BLOCK.get()};
         for (Block spile : spiles){

@@ -6,11 +6,11 @@ import com.dtteam.dynamictrees.systems.growthlogic.GrowthLogicKitConfiguration;
 import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulationContext;
 import com.dtteam.dynamictrees.tree.species.Species;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class EbonyLogic extends GrowthLogicKit {
-    public EbonyLogic(ResourceLocation registryName) {
+    public EbonyLogic(Identifier registryName) {
         super(registryName);
     }
 

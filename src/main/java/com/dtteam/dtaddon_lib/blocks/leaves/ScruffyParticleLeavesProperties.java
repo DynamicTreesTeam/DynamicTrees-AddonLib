@@ -5,7 +5,7 @@ import com.dtteam.dynamictrees.block.leaves.DynamicLeavesBlock;
 import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
 import com.dtteam.dynamictrees.block.leaves.ScruffyLeavesProperties;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -15,13 +15,13 @@ public class ScruffyParticleLeavesProperties extends ScruffyLeavesProperties {
 
     public static final TypedRegistry.EntryType<LeavesProperties> TYPE = TypedRegistry.newType(ScruffyParticleLeavesProperties::new);
 
-    public ScruffyParticleLeavesProperties(ResourceLocation registryName) {
+    public ScruffyParticleLeavesProperties(Identifier registryName) {
         super(registryName);
     }
 
     @Override
     protected DynamicLeavesBlock createDynamicLeaves(BlockBehaviour.Properties properties) {
-        return new DynamicLeavesBlock(this, properties){
+        return new DynamicLeavesBlock(this.getRegistryName(), this, properties){
             public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
                 getPrimitiveLeavesBlock().ifPresent((b)->b.animateTick(state,level,pos,random));
             }

@@ -10,7 +10,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -46,7 +45,7 @@ public class MapleSpileBlock extends MapleSpileCommon {
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (state.hasProperty(FILLED) && player.getItemInHand(hand).getItem() == Items.BUCKET) {
             Direction dir = state.getValue(FACING);
             level.setBlock(pos, DTAddonLibBlocks.MAPLE_SPILE_BUCKET_BLOCK.get().defaultBlockState()
@@ -54,7 +53,7 @@ public class MapleSpileBlock extends MapleSpileCommon {
                     .setValue(MapleSpileBucketBlock.FILLING, state.getValue(FILLED) ? 1 : 0), 3);
             if (!player.isCreative()) player.getItemInHand(hand).shrink(1);
             level.playSound(null, pos, SoundEvents.LANTERN_PLACE, SoundSource.BLOCKS, 1, 1f);
-            return ItemInteractionResult.SUCCESS;
+            return InteractionResult.SUCCESS;
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }
@@ -63,7 +62,7 @@ public class MapleSpileBlock extends MapleSpileCommon {
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
         if (state.hasProperty(FILLED)) {
             Direction dir = state.getValue(FACING);
-            if (giveSyrup(level, pos, state, player, pos.offset(dir.getOpposite().getNormal()))) {
+            if (giveSyrup(level, pos, state, player, pos.offset(dir.getOpposite().getUnitVec3i()))) {
 //                if (world.random.nextFloat() <= chanceToBreak) {
 //                    world.destroyBlock(pos, true);
 //                    world.playLocalSound(pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_BREAK, SoundCategory.BLOCKS, 1, 1, false);
@@ -81,7 +80,7 @@ public class MapleSpileBlock extends MapleSpileCommon {
         if (state.getValue(FILLED)) {
             if (!world.isClientSide() && !world.restoringBlockSnapshots)
                 world.addFreshEntity(new ItemEntity(world, pos.getX()+0.5f, pos.getY()+0.5f, pos.getZ()+0.5f, new ItemStack(getSyrupItem(species))));
-            world.playSound(null, pos, SoundEvents.HONEY_DRINK, SoundSource.BLOCKS, 1, 2f);
+            world.playSound(null, pos, SoundEvents.HONEY_DRINK.value(), SoundSource.BLOCKS, 1, 2f);
             world.setBlock(pos, state.setValue(FILLED, false), 3);
             return true;
         }

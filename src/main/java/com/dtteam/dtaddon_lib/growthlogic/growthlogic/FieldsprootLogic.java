@@ -10,7 +10,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.PositionalSpeciesCont
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -24,7 +24,7 @@ public class FieldsprootLogic extends GrowthLogicKit {
     public static final ConfigurationProperty<Integer> FIRST_TWIST_LENGTH = ConfigurationProperty.integer("first_twist_length");
     public static final ConfigurationProperty<Integer> LAST_TWIST_LENGTH = ConfigurationProperty.integer("last_twist_length");
 
-    public FieldsprootLogic(ResourceLocation registryName) {
+    public FieldsprootLogic(Identifier registryName) {
         super(registryName);
     }
 
@@ -67,7 +67,7 @@ public class FieldsprootLogic extends GrowthLogicKit {
                 boolean blocked = true;
                 for (Direction dir : Direction.Plane.HORIZONTAL){
                     if (probMap[dir.ordinal()] != 0){
-                        BlockPos pos = context.pos().offset(dir.getNormal());
+                        BlockPos pos = context.pos().offset(dir.getUnitVec3i());
                         BlockState offState = level.getBlockState(pos);
                         if ((TreeHelper.isLeaves(offState) || level.isEmptyBlock(pos) || offState.canBeReplaced())
                                 && !BranchBlock.isNextToBranch(level, pos, dir.getOpposite())){
@@ -89,7 +89,7 @@ public class FieldsprootLogic extends GrowthLogicKit {
     private List<Direction> getBranchesAround (Level level, BlockPos pos, Direction fromDir){
         List<Direction> validDirs = new LinkedList<>();
         for (Direction dir : Direction.values()){
-            if (dir != fromDir && TreeHelper.isBranch(level.getBlockState(pos.offset(dir.getNormal())))){
+            if (dir != fromDir && TreeHelper.isBranch(level.getBlockState(pos.offset(dir.getUnitVec3i())))){
                 validDirs.add(dir);
             }
         }

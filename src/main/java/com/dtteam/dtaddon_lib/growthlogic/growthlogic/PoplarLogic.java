@@ -10,7 +10,7 @@ import com.dtteam.dynamictrees.systems.GrowSignal;
 import com.dtteam.dynamictrees.utility.CoordUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
 
 // From DTBOP & DTBWG
@@ -18,7 +18,7 @@ public class PoplarLogic extends GrowthLogicKit {
 
     public static final ConfigurationProperty<Boolean> LARGE = ConfigurationProperty.bool("large");
 
-    public PoplarLogic(ResourceLocation registryName) {
+    public PoplarLogic(Identifier registryName) {
         super(registryName);
     }
 

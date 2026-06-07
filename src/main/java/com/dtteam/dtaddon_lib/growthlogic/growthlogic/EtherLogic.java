@@ -9,7 +9,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionSelectionCon
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 
 // From DTBWG
@@ -18,7 +18,7 @@ public class EtherLogic extends TwistingTreeLogic{
     public static final ConfigurationProperty<Float> CANOPY_SIDE_ENERGY = ConfigurationProperty.floatProperty("canopy_side_energy");
     public static final ConfigurationProperty<Integer> HEIGHT_BETWEEN_CANOPY_LAYERS = ConfigurationProperty.integer("height_between_canopy_layers");
 
-    public EtherLogic(ResourceLocation registryName) {
+    public EtherLogic(Identifier registryName) {
         super(registryName);
     }
 

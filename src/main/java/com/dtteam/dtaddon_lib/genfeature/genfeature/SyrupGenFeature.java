@@ -9,7 +9,7 @@ import com.dtteam.dynamictrees.systems.genfeature.context.PostGrowContext;
 import com.dtteam.dynamictrees.systems.season.SeasonHelper;
 import com.dtteam.dynamictrees.tree.TreeHelper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
@@ -26,7 +26,7 @@ public class SyrupGenFeature extends GenFeature {
     private static final ConfigurationProperty<Item> SYRUP_ITEM = ConfigurationProperty.item("syrup_item");
     private static final ConfigurationProperty<String> TINT = ConfigurationProperty.string("tint");
 
-    public SyrupGenFeature(ResourceLocation registryName) {
+    public SyrupGenFeature(Identifier registryName) {
         super(registryName);
     }
 

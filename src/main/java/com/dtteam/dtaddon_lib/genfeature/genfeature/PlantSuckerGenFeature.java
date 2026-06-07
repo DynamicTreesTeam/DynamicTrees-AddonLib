@@ -8,7 +8,7 @@ import com.dtteam.dynamictrees.systems.genfeature.context.PostGrowContext;
 import com.dtteam.dtaddon_lib.blocks.BananaSuckerBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -20,7 +20,7 @@ public class PlantSuckerGenFeature extends GenFeature {
             ConfigurationProperty.block("sucker_block");
     public static final ConfigurationProperty<Float> PLACE_CHANCE_WORLDGEN = ConfigurationProperty.floatProperty("place_chance_worldgen");
 
-    public PlantSuckerGenFeature(ResourceLocation registryName) {
+    public PlantSuckerGenFeature(Identifier registryName) {
         super(registryName);
     }
 
@@ -72,7 +72,7 @@ public class PlantSuckerGenFeature extends GenFeature {
     }
 
     private boolean addSucker(LevelAccessor world, BlockPos rootPos, boolean worldGen, Block sucker, Direction dir) {
-        BlockPos ground = getGroundPos(world, rootPos.offset(dir.getNormal()));
+        BlockPos ground = getGroundPos(world, rootPos.offset(dir.getUnitVec3i()));
         if (ground == null){
             return false;
         }

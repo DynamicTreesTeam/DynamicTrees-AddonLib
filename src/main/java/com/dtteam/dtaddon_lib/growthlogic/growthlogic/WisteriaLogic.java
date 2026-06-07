@@ -7,7 +7,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulation
 import com.dtteam.dynamictrees.systems.GrowSignal;
 import com.dtteam.dynamictrees.tree.species.Species;
 import com.dtteam.dynamictrees.utility.CoordUtils;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
 
@@ -28,7 +28,7 @@ public class WisteriaLogic extends PalmGrowthLogic {
 
     public static final ConfigurationProperty<Integer> TURNING_LENGTH = ConfigurationProperty.integer("turning_length");
 
-    public WisteriaLogic(ResourceLocation registryName) {
+    public WisteriaLogic(Identifier registryName) {
         super(registryName);
     }
 

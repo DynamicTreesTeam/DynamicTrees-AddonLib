@@ -7,7 +7,7 @@ import com.dtteam.dynamictrees.systems.growthlogic.context.DirectionManipulation
 import com.dtteam.dynamictrees.utility.CoordUtils;
 
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 // From DTBWG
 public class MapleLogic extends VariateHeightLogic {
@@ -17,7 +17,7 @@ public class MapleLogic extends VariateHeightLogic {
     public static final ConfigurationProperty<Integer> BRANCHING_HEIGHT = ConfigurationProperty.integer("branching_height");
     public static final ConfigurationProperty<Integer> ZIGZAG_UP_CHANCE = ConfigurationProperty.integer("zigzag_up_chance");
 
-    public MapleLogic(ResourceLocation registryName) {
+    public MapleLogic(Identifier registryName) {
         super(registryName);
     }
 
