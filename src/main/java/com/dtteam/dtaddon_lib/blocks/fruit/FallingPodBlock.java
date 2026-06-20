@@ -9,7 +9,10 @@ import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.protocol.game.DebugPackets;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -27,15 +30,17 @@ import java.util.List;
 
 public class FallingPodBlock extends PodBlock implements IFallingFruit {
 
-    DamageSource damageSource;
+    private final ResourceKey<DamageType> damageTypeKey;
 
     public static float randomFruitFallChance = 0.005f;
     public static float playerDistanceToFall = 10f;
 
     public FallingPodBlock(Properties properties, Pod pod) {
         super(properties, pod);
-        DamageType damageType = new DamageType(DynamicTreesAddonLib.MOD_ID+".falling_fruit."+ pod.getRegistryName().getPath(), 1F);
-        damageSource = new DamageSource(Holder.direct(damageType));
+        this.damageTypeKey = ResourceKey.create(
+                Registries.DAMAGE_TYPE,
+                ResourceLocation.fromNamespaceAndPath(pod.getRegistryName().getNamespace(), "falling_fruit/" + pod.getRegistryName().getPath())
+        );
     }
 
     @Override
@@ -65,7 +70,9 @@ public class FallingPodBlock extends PodBlock implements IFallingFruit {
 
     @Override
     public DamageSource getDamageSource(Level level) {
-        return damageSource;
+        return new DamageSource(level.registryAccess()
+                .registryOrThrow(Registries.DAMAGE_TYPE)
+                .getHolderOrThrow(damageTypeKey));
     }
 
     @Override
