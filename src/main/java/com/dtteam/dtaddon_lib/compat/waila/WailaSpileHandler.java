@@ -4,9 +4,9 @@ import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
 import com.dtteam.dynamictrees.compat.WailaHelper;
 import com.dtteam.dynamictrees.tree.TreeHelper;
 import com.dtteam.dynamictrees.tree.species.Species;
-import com.dtteam.dtaddon_lib.blocks.MapleSpileBlock;
-import com.dtteam.dtaddon_lib.blocks.MapleSpileBucketBlock;
-import com.dtteam.dtaddon_lib.blocks.MapleSpileCommon;
+import com.dtteam.dtaddon_lib.blocks.maplespile.MapleSpileBlock;
+import com.dtteam.dtaddon_lib.blocks.maplespile.MapleSpileBucketBlock;
+import com.dtteam.dtaddon_lib.blocks.maplespile.MapleSpileCommon;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -18,8 +18,8 @@ import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.ITooltip;
 import snownee.jade.api.config.IPluginConfig;
-import snownee.jade.api.ui.IElement;
-import snownee.jade.impl.ui.ElementHelper;
+import snownee.jade.api.ui.Element;
+import snownee.jade.api.ui.JadeUI;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -47,7 +47,7 @@ public class WailaSpileHandler implements IBlockComponentProvider {
         }
 
         // ADD ICON
-        List<IElement> elements = new LinkedList<>();
+        List<Element> elements = new LinkedList<>();
 
         if (WailaHelper.invalid) {
             lastPos = BlockPos.ZERO;
@@ -71,7 +71,7 @@ public class WailaSpileHandler implements IBlockComponentProvider {
                 elements.add(getElement(ItemStack.EMPTY));
             }
             Direction dir = state.getValue(MapleSpileCommon.FACING);
-            species = TreeHelper.getExactSpecies(accessor.getLevel(), accessor.getPosition().offset(dir.getOpposite().getNormal()));
+            species = TreeHelper.getExactSpecies(accessor.getLevel(), accessor.getPosition().offset(dir.getOpposite().getUnitVec3i()));
         }
 
         //If everything fails just show an iron ingot, womp womp
@@ -92,8 +92,8 @@ public class WailaSpileHandler implements IBlockComponentProvider {
         elements.forEach(tooltip::append);
     }
 
-    private static IElement getElement(ItemStack stack) {
-        return !stack.isEmpty() ? ElementHelper.INSTANCE.item(stack) : ElementHelper.INSTANCE.spacer(0, 0);
+    private static Element getElement(ItemStack stack) {
+        return !stack.isEmpty() ? JadeUI.item(stack) : JadeUI.spacer(0, 0);
     }
 
     @Override

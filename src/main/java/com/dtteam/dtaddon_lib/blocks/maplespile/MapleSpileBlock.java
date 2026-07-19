@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.blocks;
+package com.dtteam.dtaddon_lib.blocks.maplespile;
 
 import com.dtteam.dtaddon_lib.init.DTAddonLibBlocks;
 import com.dtteam.dynamictrees.tree.TreeHelper;

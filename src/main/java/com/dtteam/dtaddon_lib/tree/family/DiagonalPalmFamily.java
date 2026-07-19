@@ -12,6 +12,7 @@ import com.dtteam.dynamictrees.tree.species.Species;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.jetbrains.annotations.NotNull;
 
 // From DTBWG
@@ -24,13 +25,13 @@ public class DiagonalPalmFamily extends PalmFamily {
     }
 
     @Override
-    protected BranchBlock createBranchBlock(Identifier name) {
-        final BasicBranchBlock branch = isThick() ? new ThickBranchBlock(name, this.getProperties()){
+    protected BranchBlock createBranch(Identifier name, BlockBehaviour.Properties properties) {
+        final BasicBranchBlock branch = isThick() ? new ThickBranchBlock(name, properties){
             @Override
             public @NotNull GrowSignal growIntoAir(Level world, BlockPos pos, GrowSignal signal, int fromRadius) {
                 return DiagonalPalmFamily.growIntoAir(world, pos, signal, fromRadius, this);
             }
-        } : new BasicBranchBlock(name, this.getProperties()){
+        } : new BasicBranchBlock(name, properties){
             @Override
             public @NotNull GrowSignal growIntoAir(Level world, BlockPos pos, GrowSignal signal, int fromRadius) {
                 return DiagonalPalmFamily.growIntoAir(world, pos, signal, fromRadius, this);

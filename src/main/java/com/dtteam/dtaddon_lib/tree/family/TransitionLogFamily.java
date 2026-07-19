@@ -6,6 +6,7 @@ import com.dtteam.dynamictrees.block.branch.BranchBlock;
 import com.dtteam.dynamictrees.tree.family.Family;
 import com.dtteam.dtaddon_lib.blocks.branch.TransitionLogBranchBlock;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 
 // From DTRU
 public class TransitionLogFamily extends Family {
@@ -23,8 +24,8 @@ public class TransitionLogFamily extends Family {
     boolean transitionOnBase;
 
     @Override
-    protected BranchBlock createBranchBlock(Identifier name) {
-        final BasicBranchBlock branch = new TransitionLogBranchBlock(name, this.getProperties(), transitionOnStripped, transitionOnBase);
+    protected BranchBlock createBranch(Identifier name, BlockBehaviour.Properties properties) {
+        final BasicBranchBlock branch = new TransitionLogBranchBlock(name, properties, transitionOnStripped, transitionOnBase);
         if (this.isFireProof()) branch.setFireSpreadSpeed(0).setFlammability(0);
         return branch;
     }

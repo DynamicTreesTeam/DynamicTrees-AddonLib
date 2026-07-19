@@ -1,4 +1,4 @@
-package com.dtteam.dtaddon_lib.blocks;
+package com.dtteam.dtaddon_lib.blocks.maplespile;
 
 import com.dtteam.dynamictrees.block.branch.BranchBlock;
 import com.dtteam.dynamictrees.systems.genfeature.GenFeatureConfiguration;

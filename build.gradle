@@ -86,8 +86,12 @@ neoForge {
                     '--mod', project.mod_id,
                     '--all',
                     '--output', file('src/generated/resources/').getAbsolutePath(),
-                    '--existing', file('src/main/resources/').getAbsolutePath(),
-                    "--existing-mod", "dynamictrees")
+                    '--existing', file('src/main/resources/').getAbsolutePath())
+        }
+    }
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
         }
     }
 }
@@ -103,10 +107,8 @@ dependencies {
     implementation "net.neoforged:neoforge:${neo_version}"
 
     //DynamicTrees
-    //implementation "com.dtteam.dynamictrees:dynamictrees-neoforge-1.21.1:${dt_version}"
+    implementation "com.dtteam.dynamictrees:dynamictrees-neoforge-${minecraft_version}:${dt_version}"
     //implementation "com.dtteam.dynamictreesplus:DynamicTreesPlus:${dtplus_version}"
-    implementation "curse.maven:dynamictrees-252818:8132718"
-    //implementation "curse.maven:dynamictreesplus-478155:7513822"
 
     //DynmaicTrees Tools/Utilities
     implementation "curse.maven:jade-324717:7903350"

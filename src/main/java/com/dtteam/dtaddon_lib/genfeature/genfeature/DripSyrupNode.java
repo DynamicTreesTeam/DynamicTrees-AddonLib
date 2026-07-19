@@ -2,8 +2,8 @@ package com.dtteam.dtaddon_lib.genfeature.genfeature;
 
 import com.dtteam.dynamictrees.api.network.NodeInspector;
 import com.dtteam.dynamictrees.tree.TreeHelper;
-import com.dtteam.dtaddon_lib.blocks.MapleSpileBlock;
-import com.dtteam.dtaddon_lib.blocks.MapleSpileBucketBlock;
+import com.dtteam.dtaddon_lib.blocks.maplespile.MapleSpileBlock;
+import com.dtteam.dtaddon_lib.blocks.maplespile.MapleSpileBucketBlock;
 import com.dtteam.dtaddon_lib.init.DTAddonLibBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
