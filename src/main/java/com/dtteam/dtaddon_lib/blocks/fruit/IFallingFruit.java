@@ -1,7 +1,6 @@
 package com.dtteam.dtaddon_lib.blocks.fruit;
 
 import com.dtteam.dtaddon_lib.init.DTAddonLibRegistries;
-import com.google.common.collect.Lists;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -16,11 +15,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.FallingBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.List;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public interface IFallingFruit {
 
@@ -56,31 +52,40 @@ public interface IFallingFruit {
         return false;
     }
 
-    default FallingBlockEntity getFallingEntity (Level world, BlockPos pos, BlockState state){
-        return new FallingBlockEntity(world, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, state){
+    default FallingBlockEntity getFallingEntity(Level world, @NotNull BlockPos pos, BlockState state) {
+        return new FallingBlockEntity(world, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, state) {
 
             @Override
-            public boolean causeFallDamage(double pFallDistance, float pMultiplier, DamageSource pSource) {
+            public boolean causeFallDamage(double pFallDistance, float pMultiplier, @NotNull DamageSource pSource) {
                 int i = (int)Math.ceil(pFallDistance - 1.0F);
-                if (i > 0) {
-                    List<Entity> list = Lists.newArrayList(level().getEntities(this, this.getBoundingBox()));
-                    for(Entity entity : list) {
-                        if (entity instanceof LivingEntity){
-                            entity.hurt(getDamageSource(level()),
-                                    (float)Math.min(Math.floor((float)i * IFallingFruit.fallDamageAmount), IFallingFruit.fallDamageMax) * pMultiplier);
-                            level().playSound(null, pos,
-                                    DTAddonLibRegistries.FRUIT_BONK.get(), SoundSource.BLOCKS,
-                                    1.0F, 1.0F);
-                        }
-                    }
+                if (i <= 0) {
+                    return false;
                 }
+
+                //noinspection resource
+                if (!(level() instanceof ServerLevel serverLevel)) {
+                    return false;
+                }
+
+                for (Entity entity : serverLevel.getEntities(this, this.getBoundingBox())) {
+                    if (!(entity instanceof LivingEntity)) {
+                        continue;
+                    }
+
+                    entity.hurtServer(serverLevel, getDamageSource(serverLevel),
+                            (float)Math.min(Math.floor((float)i * IFallingFruit.fallDamageAmount), IFallingFruit.fallDamageMax) * pMultiplier);
+                    serverLevel.playSound(null, getX(), getY(), getZ(),
+                            DTAddonLibRegistries.FRUIT_BONK.get(), SoundSource.BLOCKS,
+                            1.0F, 1.0F);
+                }
+
                 return false;
             }
 
             @Nullable
             @Override
-            public ItemEntity spawnAtLocation(ServerLevel pLevel, @Nonnull ItemStack pStack, float pOffsetY) {
-                return super.spawnAtLocation(pLevel, getDropOnFallItems( this), pOffsetY);
+            public ItemEntity spawnAtLocation(@NotNull ServerLevel pLevel, @NotNull ItemStack pStack, float pOffsetY) {
+                return super.spawnAtLocation(pLevel, getDropOnFallItems(this), pOffsetY);
             }
         };
     }
