@@ -3,7 +3,7 @@ package com.dtteam.dtaddon_lib.init;
 import com.dtteam.dtaddon_lib.DynamicTreesAddonLib;
 import com.dtteam.dtaddon_lib.blocks.leaves.*;
 import com.dtteam.dtaddon_lib.cell.DTAddonLibCellKits;
-//import com.dtteam.dtaddon_lib.fruits.*;
+import com.dtteam.dtaddon_lib.fruits.*;
 import com.dtteam.dtaddon_lib.genfeature.DTAddonLibGenFeatures;
 import com.dtteam.dtaddon_lib.growthlogic.DTAddonLibGrowthLogicKits;
 import com.dtteam.dtaddon_lib.tree.family.*;
@@ -49,7 +49,7 @@ public class DTAddonLibRegistries {
                     0.625f, 0.9375f, 0.625f);
 
     public static void setup() {
-        ShapeRegitries();
+        ShapeRegistries();
         DTAddonLibCapShapeRegistries.register();
     }
 
@@ -57,7 +57,7 @@ public class DTAddonLibRegistries {
         return SOUNDS.register(name, ()-> SoundEvent.createVariableRangeEvent(DynamicTreesAddonLib.location(name)));
     }
 
-    public static void ShapeRegitries() {
+    public static void ShapeRegistries() {
         CommonVoxelShapes.SHAPES.put(DynamicTreesAddonLib.location("dragon_fruit_cactus").toString(), DRAGON_FRUIT_CACTUS_SAPLING_SHAPE);
         CommonVoxelShapes.SHAPES.put(DynamicTreesAddonLib.location("banana_sapling").toString(), BANANA_SAPLING_SHAPE);
     }
@@ -115,20 +115,20 @@ public class DTAddonLibRegistries {
         }
     }
 
-//    @SubscribeEvent
-//    public static void registerFruitType(final TypeRegistryEvent<Fruit> event) {
-//        if (event.isEntryOfType(Fruit.class)) {
-//            event.registerType(DynamicTreesAddonLib.location("offset_down"), OffsetFruit.TYPE);
-//            event.registerType(DynamicTreesAddonLib.location("falling_fruit"), FallingFruit.TYPE);
-//            event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebFruit.TYPE);
-//        }
-//    }
-//
-//    @SubscribeEvent
-//    public static void registerPodType(final TypeRegistryEvent<Pod> event) {
-//        if (event.isEntryOfType(Pod.class)){
-//            event.registerType(DynamicTreesAddonLib.location("palm"), PalmPod.TYPE);
-//            event.registerType(DynamicTreesAddonLib.location("falling_palm"), FallingPalmPod.TYPE);
-//        }
-//    }
+    @SubscribeEvent
+    public static void registerFruitType(final TypeRegistryEvent<Fruit> event) {
+        if (event.isEntryOfType(Fruit.class)) {
+            event.registerType(DynamicTreesAddonLib.location("offset_down"), OffsetFruit.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("falling_fruit"), FallingFruit.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("cobweb"), CobwebFruit.TYPE);
+        }
+    }
+
+    @SubscribeEvent
+    public static void registerPodType(final TypeRegistryEvent<Pod> event) {
+        if (event.isEntryOfType(Pod.class)){
+            event.registerType(DynamicTreesAddonLib.location("palm"), PalmPod.TYPE);
+            event.registerType(DynamicTreesAddonLib.location("falling_palm"), FallingPalmPod.TYPE);
+        }
+    }
 }
